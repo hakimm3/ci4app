@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 200,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "ci4",
+            "database": "ci4app",
+            "username": "hakim",
+            "password": "hakim"
+        }
+    ]
+}
