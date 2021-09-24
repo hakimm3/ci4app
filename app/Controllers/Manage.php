@@ -24,11 +24,25 @@ class Manage extends BaseController
 
     public function pemasok()
     {
-        return view('Manage/pemasok');
+        $query = $this->db->query("SELECT nama, alamat, phone FROM pemasok");
+        $pemasok = $query->getResultArray();
+
+        $data = [
+            "title" => "Manajemen Pemasok",
+            "pemasok" => $pemasok
+        ];
+        return view('Manage/pemasok', $data);
     }
 
     public function konsumen()
     {
-        return view('Manage/konsumen');
+        $query = $this->db->query("SELECT nama, alamat, phone FROM konsumen");
+        $konsumen = $query->getResultArray();
+
+        $data = [
+            "title" => "Manajemen Konsumen",
+            "konsumen" => $konsumen
+        ];
+        return view('Manage/konsumen', $data);
     }
 }
