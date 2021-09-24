@@ -48,8 +48,8 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
+        <a class="nav-link" href="/stokmenipis">
+            <i class=" fas fa-fw fa-chart-area"></i>
             <span>Stok Menipis</span></a>
     </li>
 
@@ -63,8 +63,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Transaksi:</h6>
-                <a class="collapse-item" href="utilities-color.html">Barang Masuk</a>
-                <a class="collapse-item" href="utilities-border.html">Barang Keluar</a>
+                <a class="collapse-item" href="transaksimasuk">Barang Masuk</a>
+                <a class="collapse-item" href="transaksikeluar">Barang Keluar</a>
             </div>
         </div>
     </li>

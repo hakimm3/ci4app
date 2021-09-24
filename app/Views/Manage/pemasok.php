@@ -17,14 +17,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($karyawan as $kar) : ?>
+                    <?php foreach ($pemasok as $pemas) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $kar["nama"] ?></td>
-                            <td><?= $kar["alamat"] ?></td>
-                            <td><?= $kar["phone"] ?></td>
+                            <td><?= $pemas["nama"] ?></td>
+                            <td><?= $pemas["alamat"] ?></td>
+                            <td><?= $pemas["phone"] ?></td>
                             <td>
                                 <a href="" class="btn btn-success">Edit</a>
                                 <a href="" class="btn btn-primary">Details</a>

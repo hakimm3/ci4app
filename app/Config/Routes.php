@@ -38,6 +38,7 @@ $routes->get('/konsumen', 'Manage::konsumen');
 
 
 $routes->get('/dashboard', 'Pages::index');
+$routes->get('/stokmenipis', 'Pages::stokmenipis');
 
 /*
  * --------------------------------------------------------------------

@@ -6,6 +6,17 @@ class Pages extends BaseController
 {
     public function index()
     {
-        return view('Pages/index');
+        $data = [
+            "title" => "Dashboard"
+        ];
+        return view('Pages/index', $data);
+    }
+
+    public function stokmenipis()
+    {
+        $data = [
+            "title" => "Stok Menipis"
+        ];
+        return view('Pages/stokmenipis', $data);
     }
 }
