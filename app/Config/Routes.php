@@ -40,6 +40,9 @@ $routes->get('/konsumen', 'Manage::konsumen');
 $routes->get('/dashboard', 'Pages::index');
 $routes->get('/stokmenipis', 'Pages::stokmenipis');
 
+
+$routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
+$routes->get('/transaksikeluar', 'Transaksi::barangkeluar');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
