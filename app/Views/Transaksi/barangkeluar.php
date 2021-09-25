@@ -5,9 +5,6 @@
 <h1 class="h3 mb-2 text-gray-800">Transaksi Barang Keluar</h1>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3" style="text-align: right; padding-right:10%; padding-top:20%;">
-        <button class="btn btn-success">Tambah data</button>
-    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

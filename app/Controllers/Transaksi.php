@@ -19,4 +19,20 @@ class Transaksi extends BaseController
         ];
         return view('Transaksi/barangkeluar', $data);
     }
+
+    public function tambahbarangkeluar()
+    {
+        $data = [
+            "title" => "Tambah Barang Keluar"
+        ];
+        return view('Transaksi/tambahbarangkeluar', $data);
+    }
+
+    public function tambahbarangmasuk()
+    {
+        $data = [
+            "title" => "Tambah Barang Masuk"
+        ];
+        return view('Transaksi/tambahbarangmasuk', $data);
+    }
 }

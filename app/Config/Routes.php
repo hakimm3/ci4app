@@ -43,6 +43,8 @@ $routes->get('/stokmenipis', 'Pages::stokmenipis');
 
 $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
 $routes->get('/transaksikeluar', 'Transaksi::barangkeluar');
+$routes->get('/tambahtransaksimasuk', 'Transaksi::tambahbarangmasuk');
+$routes->get('/tambahtransaksikeluar', 'Transaksi::tambahbarangkeluar');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

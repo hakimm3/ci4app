@@ -65,6 +65,8 @@
                 <h6 class="collapse-header">Transaksi:</h6>
                 <a class="collapse-item" href="transaksimasuk">Barang Masuk</a>
                 <a class="collapse-item" href="transaksikeluar">Barang Keluar</a>
+                <a class="collapse-item" href="tambahtransaksimasuk">Tambah Barang Masuk</a>
+                <a class="collapse-item" href="tambahtransaksikeluar">Tambah Barang Keluar</a>
             </div>
         </div>
     </li>
