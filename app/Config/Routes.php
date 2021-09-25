@@ -45,6 +45,15 @@ $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
 $routes->get('/transaksikeluar', 'Transaksi::barangkeluar');
 $routes->get('/tambahtransaksimasuk', 'Transaksi::tambahbarangmasuk');
 $routes->get('/tambahtransaksikeluar', 'Transaksi::tambahbarangkeluar');
+
+
+$routes->get('/laporanbarangmasuk', 'Laporan::laporanbarangmasuk');
+$routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
+$routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
+$routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
