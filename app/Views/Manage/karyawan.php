@@ -21,7 +21,7 @@
                     <?php foreach ($karyawan as $kar) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $kar["nama"] ?></td>
+                            <td><?= $kar["nama_karyawan"] ?></td>
                             <td><?= $kar["alamat"] ?></td>
                             <td><?= $kar["phone"] ?></td>
                             <td>

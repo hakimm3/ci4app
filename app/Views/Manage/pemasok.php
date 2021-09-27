@@ -21,7 +21,7 @@
                     <?php foreach ($pemasok as $pemas) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $pemas["nama"] ?></td>
+                            <td><?= $pemas["nama_pemasok"] ?></td>
                             <td><?= $pemas["alamat"] ?></td>
                             <td><?= $pemas["phone"] ?></td>
                             <td>

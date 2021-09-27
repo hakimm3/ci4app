@@ -17,3 +17,39 @@ ERROR - 2021-09-27 00:09:48 --> Cannot add or update a child row: a foreign key 
 CRITICAL - 2021-09-27 00:33:59 --> CodeIgniter\Database\Seeder::main(): Failed opening required '..\vendor\autoload.php' (include_path='.:/usr/share/php')
 #0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
 #1 {main}
+ERROR - 2021-09-27 01:22:24 --> Unknown column 'nama' in 'field list'
+CRITICAL - 2021-09-27 01:22:24 --> Unknown column 'nama' in 'field list'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(15): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->karyawan()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}
+ERROR - 2021-09-27 01:23:06 --> Unknown column 'nama' in 'field list'
+CRITICAL - 2021-09-27 01:23:06 --> Unknown column 'nama' in 'field list'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(15): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->karyawan()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}
+ERROR - 2021-09-27 01:23:28 --> Unknown column 'nama' in 'field list'
+CRITICAL - 2021-09-27 01:23:28 --> Unknown column 'nama' in 'field list'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(15): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->karyawan()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}

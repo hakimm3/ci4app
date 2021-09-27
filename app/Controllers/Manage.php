@@ -12,7 +12,7 @@ class Manage extends BaseController
     }
     public function karyawan()
     {
-        $query = $this->db->query("SELECT nama, alamat, phone FROM karyawan");
+        $query = $this->db->query("SELECT nama_karyawan, alamat, phone FROM karyawan");
         $karyawan = $query->getResultArray();
 
         $data = [
@@ -24,7 +24,7 @@ class Manage extends BaseController
 
     public function pemasok()
     {
-        $query = $this->db->query("SELECT nama, alamat, phone FROM pemasok");
+        $query = $this->db->query("SELECT nama_pemasok, alamat, phone FROM pemasok");
         $pemasok = $query->getResultArray();
 
         $data = [
@@ -36,7 +36,7 @@ class Manage extends BaseController
 
     public function konsumen()
     {
-        $query = $this->db->query("SELECT nama, alamat, phone FROM konsumen");
+        $query = $this->db->query("SELECT nama_konsumen, alamat, phone FROM konsumen");
         $konsumen = $query->getResultArray();
 
         $data = [

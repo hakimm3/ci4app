@@ -21,13 +21,13 @@
                     <?php foreach ($konsumen as $kons) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $kons["nama"] ?></td>
+                            <td><?= $kons["nama_konsumen"] ?></td>
                             <td><?= $kons["alamat"] ?></td>
                             <td><?= $kons["phone"] ?></td>
                             <td>
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-primary">Details</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
+                                <a href="" class="btn btn-success btn-sm">Edit</a>
+                                <a href="" class="btn btn-primary btn-sm">Details</a>
+                                <a href="" class="btn btn-danger btn-sm">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
