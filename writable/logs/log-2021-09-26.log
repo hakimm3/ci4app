@@ -1,0 +1,34 @@
+ERROR - 2021-09-26 20:55:10 --> Can't create table `ci4app`.`barang` (errno: 150 "Foreign key constraint is incorrectly formed")
+ERROR - 2021-09-26 20:58:39 --> Can't create table `ci4app`.`barang` (errno: 150 "Foreign key constraint is incorrectly formed")
+ERROR - 2021-09-26 21:07:13 --> Can't create table `ci4app`.`barang` (errno: 150 "Foreign key constraint is incorrectly formed")
+ERROR - 2021-09-26 21:10:48 --> Can't DROP FOREIGN KEY `id_pengguna`; check that it exists
+CRITICAL - 2021-09-26 23:29:16 --> CodeIgniter\Database\Seeder::main(): Failed opening required 'vendor/autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:29:54 --> CodeIgniter\Database\Seeder::main(): Failed opening required 'vendor/autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:31:11 --> CodeIgniter\Database\Seeder::main(): Failed opening required 'vendor/autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:36:36 --> CodeIgniter\Database\Seeder::main(): Failed opening required 'vendor/autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:38:49 --> CodeIgniter\Database\Seeder::main(): Failed opening required '/vendor/autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:39:55 --> CodeIgniter\Database\Seeder::main(): Failed opening required '\vendor\autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:40:09 --> CodeIgniter\Database\Seeder::main(): Failed opening required 'vendor\autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:40:57 --> CodeIgniter\Database\Seeder::main(): Failed opening required '\vendor\autoload.php' (include_path='D:\Pemrograman\XAMPP\php\PEAR')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-09-26 23:51:41 --> Object of class DateTime could not be converted to string
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2021-09-26 23:55:54 --> Cannot add or update a child row: a foreign key constraint fails (`ci4app`.`barang`, CONSTRAINT `barang_id_pengguna_foreign` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE)
+ERROR - 2021-09-26 23:57:08 --> Cannot add or update a child row: a foreign key constraint fails (`ci4app`.`barang`, CONSTRAINT `barang_id_pengguna_foreign` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE)
+ERROR - 2021-09-26 23:58:02 --> Cannot add or update a child row: a foreign key constraint fails (`ci4app`.`barang`, CONSTRAINT `barang_id_pengguna_foreign` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE)

@@ -9,9 +9,9 @@
         "codeigniter4/framework": "^4"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9",
         "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^9.1"
+        "phpunit/phpunit": "^9.1",
+        "fakerphp/faker": "^1.16"
     },
     "suggest": {
         "ext-fileinfo": "Improves mime type detection for files"

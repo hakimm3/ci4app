@@ -33,9 +33,9 @@ class AlterBarang1 extends Migration
                     'after' => 'delete_by'
                 ],
                 'updated_at' => [
-                    'type' => 'TINYINT',
-                    'constraint' => '1',
-                    'after' => 'created_at'
+                    'type' => 'DATETIME',
+                    'after' => 'created_at',
+                    'null' => true
                 ],
                 'kondisi' => [
                     'type' => 'ENUM',
