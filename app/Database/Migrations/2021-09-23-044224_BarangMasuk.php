@@ -8,34 +8,36 @@ class BarangMasuk extends Migration
 {
     public function up()
     {
+        $this->db->disableForeignKeyChecks();
+        
         $this->forge->addField([
             'id_barang_masuk' => [
                 'type' => 'VARCHAR',
-                'constraint' => '36',
+                'constraint' => '33',
             ],
-            'id_user' => [
+            'id_pengguna' => [
                 'type' => 'VARCHAR',
-                'constraint' => '36',
+                'constraint' => '37',
             ],
             'no_faktur' => [
                 'type' => 'INT',
-                'constraint' => '3',
+                'constraint' => '8',
             ],
-            'barang_id' => [
+            'id_barang' => [
                 'type' => 'VARCHAR',
-                'constraint' => '36',
+                'constraint' => '37',
             ],
             'qty' => [
                 'type' => 'INT',
-                'constraint' => 3,
+                'constraint' => '3',
             ],
-            'create_date' => [
+            'create_at' => [
                 'type' => 'DATETIME'
             ],
-            'update_date' => [
+            'update_at' => [
                 'type' => 'DATETIME'
             ],
-            'delete_date' => [
+            'delete_at' => [
                 'type' => 'DATETIME'
             ],
             'create_by' => [
@@ -49,18 +51,27 @@ class BarangMasuk extends Migration
             'delete_by' => [
                 'type' => 'VARCHAR',
                 'constraint' => '50'
+            ],
+            'id_kategori' => [
+                'type' => 'VARCHAR',
+                'constraint' => '37',
+                'after' => 'no_faktur'
             ]
         ]);
+        
         // Membuat primary key
         $this->forge->addKey('id_barang_masuk', true);
-        $this->forge->addForeignKey('id_user', 'user', 'id_user');
+
+        // menambah foreign key
+        $this->forge->addForeignKey('id_kategori','kategori','id_kategori','CASCADE','CASCADE');
+        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna','CASCADE','CASCADE');        
+        $this->forge->addForeignKey('id_barang','barang','id_barang','CASCADE','CASCADE');
 
         //membuat table
         $this->forge->createTable('barang_masuk', true);
+
         $this->db->enableForeignKeyChecks();
     }
-
-
 
     public function down()
     {

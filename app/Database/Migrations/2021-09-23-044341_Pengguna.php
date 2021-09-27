@@ -4,31 +4,41 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class BarangKeluar extends Migration
+class Pengguna extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
-
         $this->forge->addField([
-            'id_barang_keluar' => [
-                'type' => 'VARCHAR',
-                'constraint' => '37'
-            ],
             'id_pengguna' => [
                 'type' => 'VARCHAR',
                 'constraint' => '37'
             ],
-            'id_barang' => [
+            'nama' => [
                 'type' => 'VARCHAR',
-                'constraint' => '37'
+                'constraint' => '50'
             ],
-            'qty' => [
-                'type' => 'INT',
-                'constraint' => '3'
+            'alamat' => [
+                'type' => 'text',
             ],
-            'tanggal_keluar' => [
-                'type' => 'DATETIME'
+            'phone' => [
+                'type' => 'VARCHAR',
+                'constraint' => '13'
+            ],
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50'
+            ],
+            'username' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100'
+            ],
+            'password' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255'
+            ],
+            'level' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50'
             ],
             'create_at' => [
                 'type' => 'DATETIME'
@@ -52,22 +62,15 @@ class BarangKeluar extends Migration
                 'constraint' => '50'
             ]
         ]);
-
         // Membuat primary key
-        $this->forge->addKey('id_barang_keluar', true);
-
-        // menambah dan mengubah foreign key
-        $this->forge->addForeignKey('id_barang','barang','id_barang','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_pengguna','pengguna','id_pengguna','CASCADE','CASCADE');
+        $this->forge->addKey('id_pengguna', true);
 
         //membuat table
-        $this->forge->createTable('barang_keluar', true);
-
-        $this->db->enableForeignKeyChecks();
+        $this->forge->createTable('pengguna', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('barang_keluar');
+        $this->forge->dropTable('pengguna');
     }
 }

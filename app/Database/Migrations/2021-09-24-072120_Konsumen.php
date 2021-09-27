@@ -4,31 +4,29 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class BarangKeluar extends Migration
+class Konsumen extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
-
         $this->forge->addField([
-            'id_barang_keluar' => [
+            'id_konsumen' => [
                 'type' => 'VARCHAR',
-                'constraint' => '37'
+                'constraint' => '37',
             ],
-            'id_pengguna' => [
+            'konsumen' => [
                 'type' => 'VARCHAR',
-                'constraint' => '37'
+                'constraint' => '50',
             ],
-            'id_barang' => [
+            'alamat' => [
+                'type' => 'TEXT',
+            ],
+            'phone' => [
                 'type' => 'VARCHAR',
-                'constraint' => '37'
+                'constraint' => '14',
             ],
-            'qty' => [
-                'type' => 'INT',
-                'constraint' => '3'
-            ],
-            'tanggal_keluar' => [
-                'type' => 'DATETIME'
+            'active' => [
+                'type' => 'CHAR',
+                'constraint' => '1',
             ],
             'create_at' => [
                 'type' => 'DATETIME'
@@ -52,22 +50,16 @@ class BarangKeluar extends Migration
                 'constraint' => '50'
             ]
         ]);
-
+        
         // Membuat primary key
-        $this->forge->addKey('id_barang_keluar', true);
-
-        // menambah dan mengubah foreign key
-        $this->forge->addForeignKey('id_barang','barang','id_barang','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_pengguna','pengguna','id_pengguna','CASCADE','CASCADE');
+        $this->forge->addKey('id_konsumen', true);
 
         //membuat table
-        $this->forge->createTable('barang_keluar', true);
-
-        $this->db->enableForeignKeyChecks();
+        $this->forge->createTable('konsumen', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('barang_keluar');
+        $this->forge->dropTable('konsumen');
     }
 }
