@@ -2,7 +2,7 @@
 
 namespace App\Database\Seeds;
 
-require_once '..\vendor\autoload.php';
+// require_once '..\vendor\autoload.php';
 
 use CodeIgniter\Database\Seeder;
 
