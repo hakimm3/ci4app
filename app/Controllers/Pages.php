@@ -7,7 +7,8 @@ class Pages extends BaseController
     public function index()
     {
         $data = [
-            "title" => "Dashboard"
+            "title" => "Beranda",
+            "active" => "beranda"
         ];
         return view('Pages/index', $data);
     }
@@ -15,7 +16,8 @@ class Pages extends BaseController
     public function stokmenipis()
     {
         $data = [
-            "title" => "Stok Menipis"
+            "title" => "Stok Menipis",
+            "active" => "stok-menipis"
         ];
         return view('Pages/stokmenipis', $data);
     }

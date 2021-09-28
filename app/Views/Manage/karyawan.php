@@ -7,11 +7,11 @@
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead class="text-center">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
+                        <th class="col-4">Alamat</th>
                         <th>No Handphone</th>
                         <th>Aksi</th>
                     </tr>
@@ -24,7 +24,7 @@
                             <td><?= $kar["nama_karyawan"] ?></td>
                             <td><?= $kar["alamat"] ?></td>
                             <td><?= $kar["phone"] ?></td>
-                            <td>
+                            <td class="text-center">
                                 <a href="" class="btn btn-success">Edit</a>
                                 <a href="" class="btn btn-primary">Details</a>
                                 <a href="" class="btn btn-danger">Hapus</a>

@@ -12,18 +12,18 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
+    <li class="nav-item" id="item-beranda">
+        <a class="nav-link" href="/beranda">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Beranda</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    <li class="nav-item" id="item-manage-data">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="link-manage-data">
             <i class="fas fa-fw fa-cog"></i>
             <span>Manage Data</span>
         </a>

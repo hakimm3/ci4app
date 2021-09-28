@@ -8,10 +8,10 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
+                        <th class="col-3">Alamat</th>
                         <th>No Handphone</th>
                         <th>Aksi</th>
                     </tr>
@@ -24,10 +24,10 @@
                             <td><?= $kons["nama_konsumen"] ?></td>
                             <td><?= $kons["alamat"] ?></td>
                             <td><?= $kons["phone"] ?></td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm">Edit</a>
-                                <a href="" class="btn btn-primary btn-sm">Details</a>
-                                <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                            <td class="text-center">
+                                <a href="" class="btn btn-success">Edit</a>
+                                <a href="" class="btn btn-primary">Details</a>
+                                <a href="" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

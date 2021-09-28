@@ -116,8 +116,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-
-    <!-- Js Form -->
+    <!-- Custom scripts for all pages-->
+    <script src="js/active-sidebar.js"></script>
 </body>
 
 </html>

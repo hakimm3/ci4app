@@ -37,7 +37,7 @@ $routes->get('/pemasok', 'Manage::pemasok');
 $routes->get('/konsumen', 'Manage::konsumen');
 
 
-$routes->get('/dashboard', 'Pages::index');
+$routes->get('/beranda', 'Pages::index');
 $routes->get('/stokmenipis', 'Pages::stokmenipis');
 
 

@@ -8,10 +8,10 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
+                        <th class="col-4">Alamat</th>
                         <th>No Handphone</th>
                         <th>Aksi</th>
                     </tr>
@@ -24,10 +24,10 @@
                             <td><?= $pemas["nama_pemasok"] ?></td>
                             <td><?= $pemas["alamat"] ?></td>
                             <td><?= $pemas["phone"] ?></td>
-                            <td>
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-primary">Details</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
+                            <td class="text-center">
+                                <a href="" class="btn btn-success btn">Edit</a>
+                                <a href="" class="btn btn-primary btn">Details</a>
+                                <a href="" class="btn btn-danger btn">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

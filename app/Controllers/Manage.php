@@ -17,6 +17,7 @@ class Manage extends BaseController
 
         $data = [
             "title" => "Manajemen Karyawan",
+            "active" => "manage-karyawan",
             "karyawan" => $karyawan
         ];
         return view('Manage/karyawan', $data);
@@ -29,18 +30,20 @@ class Manage extends BaseController
 
         $data = [
             "title" => "Manajemen Pemasok",
+            "active" => "manage-pemasok",
             "pemasok" => $pemasok
         ];
         return view('Manage/pemasok', $data);
     }
-
+    
     public function konsumen()
     {
         $query = $this->db->query("SELECT nama_konsumen, alamat, phone FROM konsumen");
         $konsumen = $query->getResultArray();
-
+        
         $data = [
             "title" => "Manajemen Konsumen",
+            "active" => "manage-konsumen",
             "konsumen" => $konsumen
         ];
         return view('Manage/konsumen', $data);
