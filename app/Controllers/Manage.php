@@ -2,13 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\KaryawanModel;
+use Faker\Provider\Uuid;
+
 class Manage extends BaseController
 {
     protected $db;
+    protected $karyawanmodel;
 
     public function __construct()
     {
         $this->db = \Config\Database::connect();
+        $this->karyawanmodel = new KaryawanModel();
     }
 
     // Start Karyawan
@@ -33,6 +38,27 @@ class Manage extends BaseController
         return view('Manage/tambah_karyawan', $data);
     }
 
+    public function save_karyawan()
+    {
+        // $this->karyawanmodel->save([
+        //     'id_karyawan' => $this->uuid(),
+        //     'nama_karyawan' => $this->request->getVar('nama'),
+        //     'alamat' => $this->request->getVar('alamat'),
+        //     'phone' => $this->request->getVar('phone'),
+        //     'email' => $this->request->getVar('email'),
+        //     'jabatan' => $this->request->getVar('jabatan')
+        // ]);
+        $data = [
+            'id_karyawan' => $this->uuid(),
+            'nama_karyawan' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'phone' => $this->request->getVar('phone'),
+            'email' => $this->request->getVar('email'),
+            'jabatan' => $this->request->getVar('jabatan')
+        ];
+        $this->karyawanmodel->insert($data);
+        return redirect()->to('/Manage/karyawan');
+    }
     // End Karyawan
 
 

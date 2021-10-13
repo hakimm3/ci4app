@@ -22,3 +22,53 @@ CRITICAL - 2021-10-13 09:02:57 --> Undefined variable: title
 #9 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
 #11 {main}
+ERROR - 2021-10-13 10:02:05 --> Unknown column 'update_at' in 'field list'
+CRITICAL - 2021-10-13 10:02:05 --> Unknown column 'update_at' in 'field list'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1875): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(298): CodeIgniter\Database\BaseBuilder->update()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(865): CodeIgniter\Model->doUpdate()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(646): CodeIgniter\BaseModel->update()
+#7 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(656): CodeIgniter\Model->update()
+#8 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(48): CodeIgniter\BaseModel->save()
+#9 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_karyawan()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#11 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#13 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#14 {main}
+ERROR - 2021-10-13 10:12:26 --> Duplicate entry '' for key 'PRIMARY'
+CRITICAL - 2021-10-13 10:12:26 --> Duplicate entry '' for key 'PRIMARY'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(658): CodeIgniter\Model->insert()
+#8 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(47): CodeIgniter\BaseModel->save()
+#9 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_karyawan()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#11 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#13 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#14 {main}
+ERROR - 2021-10-13 10:29:35 --> Column 'alamat' cannot be null
+CRITICAL - 2021-10-13 10:29:35 --> Column 'alamat' cannot be null
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(59): CodeIgniter\Model->insert()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_karyawan()
+#9 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#13 {main}

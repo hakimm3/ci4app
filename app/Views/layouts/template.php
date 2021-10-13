@@ -22,7 +22,7 @@
     <!-- Link css form -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styleform.css">
+    <link rel="stylesheet" href="/css/styleform.css">
 </head>
 
 <body id="page-top">

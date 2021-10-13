@@ -36,7 +36,6 @@
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>
-
                 </tbody>
             </table>
         </div>
