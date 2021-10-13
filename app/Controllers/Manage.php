@@ -10,6 +10,8 @@ class Manage extends BaseController
     {
         $this->db = \Config\Database::connect();
     }
+
+    // Start Karyawan
     public function karyawan()
     {
         $query = $this->db->query("SELECT nama_karyawan, alamat, phone FROM karyawan");
@@ -23,6 +25,18 @@ class Manage extends BaseController
         return view('Manage/karyawan', $data);
     }
 
+    public function tambah_karyawan()
+    {
+        $data = [
+            'title' => 'Tambah Data Karyawan'
+        ];
+        return view('Manage/tambah_karyawan', $data);
+    }
+
+    // End Karyawan
+
+
+
     public function pemasok()
     {
         $query = $this->db->query("SELECT nama_pemasok, alamat, phone FROM pemasok");
@@ -35,12 +49,12 @@ class Manage extends BaseController
         ];
         return view('Manage/pemasok', $data);
     }
-    
+
     public function konsumen()
     {
         $query = $this->db->query("SELECT nama_konsumen, alamat, phone FROM konsumen");
         $konsumen = $query->getResultArray();
-        
+
         $data = [
             "title" => "Manajemen Konsumen",
             "active" => "manage-konsumen",

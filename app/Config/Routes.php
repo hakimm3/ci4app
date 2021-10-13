@@ -36,6 +36,8 @@ $routes->get('/karyawan', 'Manage::karyawan');
 $routes->get('/pemasok', 'Manage::pemasok');
 $routes->get('/konsumen', 'Manage::konsumen');
 
+$routes->get('/tambah_karyawan', 'Manage::tambah_karywan');
+
 
 $routes->get('/beranda', 'Pages::index');
 $routes->get('/stokmenipis', 'Pages::stokmenipis');

@@ -1,0 +1,24 @@
+CRITICAL - 2021-10-13 09:02:34 --> Invalid file: layout/template.php
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/View/View.php(230): CodeIgniter\View\View->render()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Common.php(1092): CodeIgniter\View\View->render()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(30): view()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->tambah_karyawan()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}
+CRITICAL - 2021-10-13 09:02:57 --> Undefined variable: title
+#0 /home/hakim/Documents/GitHub/ci4app/app/Views/layouts/template.php(12): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/View/View.php(214): include('/home/hakim/Doc...')
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/View/View.php(230): CodeIgniter\View\View->render()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Common.php(1092): CodeIgniter\View\View->render()
+#5 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(30): view()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->tambah_karyawan()
+#7 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#11 {main}
