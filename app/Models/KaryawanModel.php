@@ -10,6 +10,7 @@ class KaryawanModel extends Model
     protected $table      = 'karyawan';
     protected $primaryKey = 'id_karyawan';
     protected $useSoftDeletes = true;
+    protected $useAutoIncrement = false;
 
     protected $allowedFields = ['id_karyawan', 'nama_karyawan', 'alamat', 'phone', 'email', 'jabatan'];
 

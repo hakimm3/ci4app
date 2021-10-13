@@ -72,3 +72,14 @@ CRITICAL - 2021-10-13 10:29:35 --> Column 'alamat' cannot be null
 #11 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #12 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
 #13 {main}
+CRITICAL - 2021-10-13 10:45:33 --> There is no primary key defined when trying to make insert.
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(229): CodeIgniter\Database\Exceptions\DataException::forEmptyPrimaryKey()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(59): CodeIgniter\Model->insert()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_karyawan()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}
