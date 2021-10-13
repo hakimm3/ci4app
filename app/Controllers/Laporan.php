@@ -22,7 +22,6 @@ class Laporan extends BaseController
 
     public function laporanpemasok()
     {
-        $pemasok = $Pemasok->findAll();
         $data = [
             "title" => "Laporan Pemasok"
         ];
