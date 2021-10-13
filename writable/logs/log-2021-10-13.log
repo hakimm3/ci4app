@@ -83,3 +83,46 @@ CRITICAL - 2021-10-13 10:45:33 --> There is no primary key defined when trying t
 #7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
 #9 {main}
+ERROR - 2021-10-13 18:50:32 --> Unknown column 'jabatan' in 'field list'
+CRITICAL - 2021-10-13 18:50:32 --> Unknown column 'jabatan' in 'field list'
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(100): CodeIgniter\Model->insert()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_pemasok()
+#9 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#13 {main}
+CRITICAL - 2021-10-13 18:51:11 --> There is no primary key defined when trying to make insert.
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(229): CodeIgniter\Database\Exceptions\DataException::forEmptyPrimaryKey()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#3 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(99): CodeIgniter\Model->insert()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_pemasok()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#9 {main}
+ERROR - 2021-10-13 18:53:30 --> Column 'alamat' cannot be null
+CRITICAL - 2021-10-13 18:53:30 --> Column 'alamat' cannot be null
+#0 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/hakim/Documents/GitHub/ci4app/app/Controllers/Manage.php(99): CodeIgniter\Model->insert()
+#8 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Manage->save_pemasok()
+#9 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#10 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
+#13 {main}

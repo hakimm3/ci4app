@@ -3,17 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\KaryawanModel;
+use App\Models\PemasokModel;
 use Faker\Provider\Uuid;
 
 class Manage extends BaseController
 {
     protected $db;
     protected $karyawanmodel;
+    protected $pemasokmodel;
 
     public function __construct()
     {
         $this->db = \Config\Database::connect();
         $this->karyawanmodel = new KaryawanModel();
+        $this->pemasokmodel = new PemasokModel();
     }
 
     // Start Karyawan
@@ -57,12 +60,12 @@ class Manage extends BaseController
             'jabatan' => $this->request->getVar('jabatan')
         ];
         $this->karyawanmodel->insert($data);
-        return redirect()->to('/Manage/karyawan');
+        return redirect()->to('/karyawan');
     }
     // End Karyawan
 
 
-
+    // Start Pemasok
     public function pemasok()
     {
         $query = $this->db->query("SELECT nama_pemasok, alamat, phone FROM pemasok");
@@ -75,6 +78,29 @@ class Manage extends BaseController
         ];
         return view('Manage/pemasok', $data);
     }
+    public function tambah_pemasok()
+    {
+        $data = [
+            'title' => 'Tambah Data Pemasok'
+        ];
+        return view('Manage/tambah_pemasok', $data);
+    }
+
+    public function save_pemasok()
+    {
+        // ]);
+        $data = [
+            'id_pemasok' => $this->uuid(),
+            'nama_pemasok' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'phone' => $this->request->getVar('phone'),
+            'email' => $this->request->getVar('email'),
+        ];
+        $this->pemasokmodel->insert($data);
+        return redirect()->to('/pemasok');
+    }
+
+    // End Pemasok
 
     public function konsumen()
     {
