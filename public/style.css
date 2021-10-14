@@ -99,3 +99,7 @@
 .sidebar .nav .nav>li>a.active a {
     color: #fff;
 }
+
+label{
+    color: grey;
+}

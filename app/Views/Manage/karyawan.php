@@ -29,9 +29,9 @@
                             <td><?= $kar["alamat"] ?></td>
                             <td><?= $kar["phone"] ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-primary">Details</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
+                                <a href="Manage/edit_karyawan/<?= $kar["id_karyawan"] ?>" class="btn btn-success">Edit</a>
+                                <a href="Manage/details_karyawan/<?= $kar["id_karyawan"] ?>" class="btn btn-primary">Details</a>
+                                <a href="Manage/hapus_karyawan/<?= $kar["id_karyawan"] ?>" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

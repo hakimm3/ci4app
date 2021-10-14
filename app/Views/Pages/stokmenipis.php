@@ -15,63 +15,26 @@
                         <th>Kategori</th>
                         <th>Stok</th>
                         <th>Min Stok</th>
-                        <th>Satuan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($stok_menipis as $stk) : ?>
+                        <tr>
+                            <td><?= $i ?></td>
+                            <td><?= $stk['barang'] ?></td>
+                            <td><?= $stk['kategori'] ?></td>
+                            <td><?= $stk['stok'] ?></td>
+                            <td><?= $stk['min_stok'] ?></td>
+                            <td>
+                                <a href="Pages/edit_barang/<?= $stk['id_barang'] ?>" class="btn btn-success">Edit</a>
+                                <a href="Pages/details_barang/<?= $stk['id_barang'] ?>" class="btn btn-primary">Details</a>
+                                <a href="Pages/hapus_barang/<?= $stk['id_barang'] ?>" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

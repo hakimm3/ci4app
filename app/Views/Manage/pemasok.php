@@ -28,9 +28,9 @@
                             <td><?= $pemas["alamat"] ?></td>
                             <td><?= $pemas["phone"] ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-success btn">Edit</a>
-                                <a href="" class="btn btn-primary btn">Details</a>
-                                <a href="" class="btn btn-danger btn">Hapus</a>
+                                <a href="Manage/edit_pemasok/<?= $pemas["id_pemasok"] ?>" class="btn btn-success btn">Edit</a>
+                                <a href="Manage/details_pemasok/<?= $pemas["id_pemasok"] ?>" class="btn btn-primary btn">Details</a>
+                                <a href="Manage/hapus_pemasok/<?= $pemas["id_pemasok"] ?>" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
