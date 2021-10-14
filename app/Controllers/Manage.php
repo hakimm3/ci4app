@@ -43,14 +43,6 @@ class Manage extends BaseController
 
     public function save_karyawan()
     {
-        // $this->karyawanmodel->save([
-        //     'id_karyawan' => $this->uuid(),
-        //     'nama_karyawan' => $this->request->getVar('nama'),
-        //     'alamat' => $this->request->getVar('alamat'),
-        //     'phone' => $this->request->getVar('phone'),
-        //     'email' => $this->request->getVar('email'),
-        //     'jabatan' => $this->request->getVar('jabatan')
-        // ]);
         $data = [
             'id_karyawan' => $this->uuid(),
             'nama_karyawan' => $this->request->getVar('nama'),
@@ -59,6 +51,7 @@ class Manage extends BaseController
             'email' => $this->request->getVar('email'),
             'jabatan' => $this->request->getVar('jabatan')
         ];
+
         $this->karyawanmodel->insert($data);
         return redirect()->to('/karyawan');
     }

@@ -9,13 +9,13 @@ use CodeIgniter\Database\Seeder;
 class BarangSeeder extends Seeder
 {
     protected $db;
-    
+
     public function run()
     {
         $this->db = \Config\Database::connect();
         // $this->faker = Faker\Factory::create('id_ID');
 
-        for ($i=0; $i < 50; $i++) { 
+        for ($i = 0; $i < 15; $i++) {
             $id_pengguna = static::faker()->uuid();
             $id_konsumen = static::faker()->uuid();
             $id_kategori = static::faker()->uuid();
