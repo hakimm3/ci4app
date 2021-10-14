@@ -30,7 +30,7 @@ class BarangSeeder extends Seeder
                     'id_pemasok' => $id_pemasok,
                     'nama_barang'    => static::faker()->word(),
                     'stok' => static::faker()->randomNumber(3, false),
-                    'min_stok' => static::faker()->randomDigit(),
+                    'min_stok' => 10,
                     'satuan' => 'buah',
                     'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
                     'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
