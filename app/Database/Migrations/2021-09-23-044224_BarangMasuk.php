@@ -9,11 +9,11 @@ class BarangMasuk extends Migration
     public function up()
     {
         $this->db->disableForeignKeyChecks();
-        
+
         $this->forge->addField([
             'id_barang_masuk' => [
                 'type' => 'VARCHAR',
-                'constraint' => '33',
+                'constraint' => '37',
             ],
             'id_pengguna' => [
                 'type' => 'VARCHAR',
@@ -64,14 +64,14 @@ class BarangMasuk extends Migration
                 'after' => 'no_faktur'
             ]
         ]);
-        
+
         // Membuat primary key
         $this->forge->addKey('id_barang_masuk', true);
 
         // menambah foreign key
-        $this->forge->addForeignKey('id_kategori','kategori','id_kategori','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna','CASCADE','CASCADE');        
-        $this->forge->addForeignKey('id_barang','barang','id_barang','CASCADE','CASCADE');
+        $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_barang', 'barang', 'id_barang', 'CASCADE', 'CASCADE');
 
         //membuat table
         $this->forge->createTable('barang_masuk', true);

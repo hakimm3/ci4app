@@ -182,8 +182,7 @@ class Manage extends BaseController
     // Start Konsumen
     public function konsumen()
     {
-        $query = $this->db->query("SELECT *FROM konsumen WHERE deleted_at is NUll");
-        $konsumen = $query->getResultArray();
+        $konsumen = $this->konsumenmodel->findAll();
 
         $data = [
             "title" => "Manajemen Konsumen",

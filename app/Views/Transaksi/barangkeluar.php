@@ -2,7 +2,10 @@
 <?php $this->section('content'); ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Transaksi Barang Keluar</h1>
+<h1 class="h3 mb-2 text-gray-800">Transaksi Barang keluar</h1>
+<form action="/Transaksi/tambah_barang_keluar" method="post">
+    <button type="submit" class="btn btn-success my-3">Tambah Barang Keluar</button>
+</form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -12,124 +15,31 @@
                     <tr>
                         <th>No</th>
                         <th>Barang</th>
-                        <th>Tanggal</th>
-                        <th>Konsumen</th>
+                        <th>Tanggal keluar</th>
                         <th>Qty</th>
                         <th>Satuan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011/08/14</td>
-                        <td>$163,000</td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-primary">Details</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($barang_keluar as $barang) :  ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td> <?= $barang['barang'] ?> </td>
+                            <td><?= $barang['tanggal_keluar'] ?></td>
+                            <td><?= $barang['qty'] ?></td>
+                            <td><?= $barang['satuan'] ?></td>
+                            <td>
+                                <a href="/Transaksi/edit_barang_keluar/<?= $barang['id_barang_keluar'] ?>" class="btn btn-success">Edit</a>
+                                <a href="/Transaksi/detail_barang_keluar/<?= $barang['id_barang_keluar'] ?>" class="btn btn-primary">Details</a>
+                                <a href="/Transaksi/hapus_barang_keluar/<?= $barang['id_barang_keluar'] ?>" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
-            <!-- <div class="btn btn-success" style="padding-right: 50px; margin-left: 170px; margin-top:-790px; align-text:center;">
-                Tambah
-            </div> -->
-
         </div>
     </div>
 </div>

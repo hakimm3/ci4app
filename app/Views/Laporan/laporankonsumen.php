@@ -3,6 +3,9 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Laporan Konsumen</h1>
+<form action="/Laporan/exportexcelkonsumen" method="post">
+    <button type="submit" class="btn btn-success my-3">Export ke Excel</button>
+</form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -19,30 +22,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($konsumen as $k) : ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $k['id_konsumen'] ?></td>
+                            <td><?= $k['nama_konsumen']; ?></td>
+                            <td><?= $k['alamat'] ?></td>
+                            <td><?= $k['phone'] ?></td>
+                            <td><?= $k['email'] ?></td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

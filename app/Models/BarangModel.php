@@ -12,7 +12,7 @@ class BarangModel extends Model
     protected $useSoftDeletes = true;
     protected $useAutoIncrement = false;
 
-    protected $allowedFields = ['id_barang', 'nama_barang', 'stok', 'min_stok', 'satuan', 'kondisi'];
+    protected $allowedFields = ['id_barang', 'id_konsumen', 'id_pemasok', 'id_kategori', 'nama_barang', 'stok', 'min_stok', 'satuan', 'kondisi'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';

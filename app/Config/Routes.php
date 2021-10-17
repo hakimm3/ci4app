@@ -41,6 +41,7 @@ $routes->get('/tambah_karyawan', 'Manage::tambah_karywan');
 
 $routes->get('/beranda', 'Pages::index');
 $routes->get('/stokmenipis', 'Pages::stokmenipis');
+$routes->get('/manajemenbarang', 'Pages::manajemenbarang');
 
 
 $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');

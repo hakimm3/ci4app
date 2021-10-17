@@ -28,7 +28,7 @@ class BarangKeluarSeeder extends Seeder
                     'id_pengguna' => $id_pengguna,
                     'id_barang' => $id_barang,
                     'qty' => static::faker()->randomNumber(3, false),
-                    'tanggal_keluar' => static::faker()->dateTime()->format('Y-m-d H:i:s'),
+                    'tanggal_keluar' => static::faker()->date(),
                     'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
                     'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
                     'create_by' => static::faker()->name(),

@@ -3,6 +3,9 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Laporan Barang Masuk</h1>
+<form action="/Laporan/exportexcelbarangmasuk" method="post">
+    <button type="submit" class="btn btn-success my-3">Export ke Excel</button>
+</form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -21,36 +24,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                        <td>$320,800</td>
-                        <td>2020-10-19</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                        <td>$320,800</td>
-                        <td>2020-10-19</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>Kg</td>
-                        <td>$320,800</td>
-                        <td>2020-10-19</td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($barang_masuk as $brg) : ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td><?= $brg['barang'] ?></td>
+                            <td><?= $brg['kategori'] ?></td>
+                            <td><?= $brg['pemasok'] ?></td>
+                            <td><?= $brg['no_faktur'] ?></td>
+                            <td><?= $brg['satuan'] ?></td>
+                            <td><?= $brg['qty'] ?></td>
+                            <td><?= $brg['tanggal_masuk'] ?></td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+
                 </tbody>
             </table>
         </div>

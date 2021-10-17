@@ -28,9 +28,9 @@
                             <td><?= $stk['stok'] ?></td>
                             <td><?= $stk['min_stok'] ?></td>
                             <td>
-                                <a href="Pages/edit_barang/<?= $stk['id_barang'] ?>" class="btn btn-success">Edit</a>
-                                <a href="Pages/details_barang/<?= $stk['id_barang'] ?>" class="btn btn-primary">Details</a>
-                                <a href="Pages/hapus_barang/<?= $stk['id_barang'] ?>" class="btn btn-danger">Hapus</a>
+                                <a href="/Pages/edit_barang/<?= $stk['id_barang'] ?>" class="btn btn-success">Edit</a>
+                                <a href="/Pages/details_barang/<?= $stk['id_barang'] ?>" class="btn btn-primary">Details</a>
+                                <a href="/Pages/hapus_barang/<?= $stk['id_barang'] ?>" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

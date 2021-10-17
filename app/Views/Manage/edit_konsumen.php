@@ -9,20 +9,31 @@
             </div>
             <br>
             <input type="hidden" name="id_konsumen" value="<?= $konsumen[0]['id_konsumen']; ?>">
-            <div class="form-group">
-                <input type="text" class="form-control item" name="nama" value="<?= $konsumen[0]['nama_konsumen'] ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" name="alamat" value="<?= $konsumen[0]['alamat'] ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" name="phone" value="<?= $konsumen[0]['phone'] ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" name="email" value="<?= $konsumen[0]['email'] ?>">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="label">Konsumen</label>
+                        <input type="text" class="form-control item" name="nama" value="<?= $konsumen[0]['nama_konsumen'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Alamat</label>
+                        <input type="text" class="form-control item" name="alamat" value="<?= $konsumen[0]['alamat'] ?>">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="label">No Handphone</label>
+                        <input type="text" class="form-control item" name="phone" value="<?= $konsumen[0]['phone'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Email</label>
+                        <input type="text" class="form-control item" name="email" value="<?= $konsumen[0]['email'] ?>">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account">Simpan</button>
+                <a href="/konsumen" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

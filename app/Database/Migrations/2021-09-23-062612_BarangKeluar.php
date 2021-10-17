@@ -28,7 +28,7 @@ class BarangKeluar extends Migration
                 'constraint' => '3'
             ],
             'tanggal_keluar' => [
-                'type' => 'DATETIME'
+                'type' => 'DATE'
             ],
             'create_at' => [
                 'type' => 'DATETIME',
@@ -63,8 +63,8 @@ class BarangKeluar extends Migration
         $this->forge->addKey('id_barang_keluar', true);
 
         // menambah dan mengubah foreign key
-        $this->forge->addForeignKey('id_barang','barang','id_barang','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_pengguna','pengguna','id_pengguna','CASCADE','CASCADE');
+        $this->forge->addForeignKey('id_barang', 'barang', 'id_barang', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna', 'CASCADE', 'CASCADE');
 
         //membuat table
         $this->forge->createTable('barang_keluar', true);

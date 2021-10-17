@@ -40,7 +40,7 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/manajemenbarang">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Manajemen Barang</span></a>
     </li>
@@ -56,7 +56,7 @@
     <hr class="sidebar-divider">
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Transaksi</span>
         </a>
@@ -65,7 +65,6 @@
                 <h6 class="collapse-header">Transaksi:</h6>
                 <a class="collapse-item" href="transaksimasuk">Barang Masuk</a>
                 <a class="collapse-item" href="transaksikeluar">Barang Keluar</a>
-                <a class="collapse-item" href="tambahtransaksimasuk">Tambah Barang Masuk</a>
                 <a class="collapse-item" href="tambahtransaksikeluar">Tambah Barang Keluar</a>
             </div>
         </div>

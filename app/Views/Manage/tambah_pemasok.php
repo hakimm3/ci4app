@@ -9,16 +9,20 @@
             </div>
             <br>
             <div class="form-group">
-                <input type="text" class="form-control item" name="nama" placeholder="Nama">
+                <label class="label">Nama</label>
+                <input type="text" class="form-control item" name="nama" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="alamat" placeholder="Alamat">
+                <label class="label">Alamat</label>
+                <input type="text" class="form-control item" name="alamat" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="phone" placeholder="No Handphone">
+                <label class="label">No Handphone</label>
+                <input type="text" class="form-control item" name="phone" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="email" placeholder="Email">
+                <label class="label">Email</label>
+                <input type="text" class="form-control item" name="email" required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account">Tambah</button>
