@@ -4,11 +4,13 @@ namespace App\Controllers;
 
 use App\Database\Migrations\Kategori;
 use App\Database\Migrations\Pemasok;
+use App\Database\Migrations\Pengguna;
 use App\Models\BarangMasukModel;
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use App\Models\KonsumenModel;
 use App\Models\PemasokModel;
+use App\Models\PenggunaModel;
 use CodeIgniter\Database\Config;
 use CodeIgniter\Database\Query;
 
@@ -20,6 +22,7 @@ class Pages extends BaseController
     protected $barangmasukmodel;
     protected $konsumenmodel;
     protected $pemasokmodel;
+    protected $penggunamodel;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
@@ -28,16 +31,36 @@ class Pages extends BaseController
         $this->barangmasukmodel = new BarangMasukModel();
         $this->konsumenmodel = new KonsumenModel();
         $this->pemasokmodel = new PemasokModel();
+        $this->penggunamodel = new PenggunaModel();
     }
 
     public function index()
     {
-        $query = $this->db->query('SELECT count(stok) as stok_kosong FROM barang WHERE stok=0');
-        $stok_kosonng = $query->getResultArray();
+        $logedUserID = session()->get('LoggedUser');
+        $level = session()->get('level');
+        $logedUserData = $this->penggunamodel->where('id_pengguna', $logedUserID)->findAll();
+
+        $querystokkosong = $this->db->query('SELECT count(stok) as stok_kosong FROM barang WHERE stok=0');
+        $stok_kosonng = $querystokkosong->getResultArray();
+
+        $querybarangbaru = $this->db->query("SELECT SUM(created_at BETWEEN NOW() - INTERVAL 604800 second AND NOW()) as barang_baru from barang;");
+        $barang_baru = $querybarangbaru->getResultArray();
+
+        $querybarangkeluar = $this->db->query("SELECT SUM(created_at BETWEEN NOW() - INTERVAL 604800 second AND NOW()) as barang_keluar from barang_keluar;");
+        $barang_keluar = $querybarangkeluar->getResultArray();
+
+        $querykonsumen = $this->db->query("SELECT SUM(created_at BETWEEN NOW() - INTERVAL 604800 second AND NOW()) as konsumen from konsumen;");
+        $konsumen = $querykonsumen->getResultArray();
+
         $data = [
             'stok_kosong' => $stok_kosonng,
+            'barang_baru' => $barang_baru,
+            'barang_keluar' => $barang_keluar,
+            'konsumen' => $konsumen,
             "title" => "Beranda",
-            "active" => "beranda"
+            "active" => "beranda",
+            'loged_data' => $logedUserData,
+            'level' => $level
         ];
         return view('Pages/dashboard', $data);
     }
@@ -66,7 +89,8 @@ class Pages extends BaseController
     // details Barang
     public function details_barang($id)
     {
-        $query = $this->db->query("SELECT barang.nama_barang as barang, 
+        $query = $this->db->query("SELECT barang.nama_barang as barang,
+                                    barang.id_barang as id_barang, 
                                     kategori.nama_kategori as kategori,
                                     barang.stok as stok, barang.min_stok,
                                     barang.satuan as satuan, barang.kondisi as kondisi
@@ -86,6 +110,7 @@ class Pages extends BaseController
     public function details_barang2($id)
     {
         $query = $this->db->query("SELECT barang.nama_barang as barang,
+        barang.id_barang as id_barang,
         kategori.nama_kategori as kategori,
         pemasok.nama_pemasok as pemasok,
         konsumen.nama_konsumen as konsumen,
@@ -244,5 +269,33 @@ class Pages extends BaseController
     {
         $this->barangmodel->delete($id);
         return redirect()->to('/manajemenbarang');
+    }
+
+
+    // Pengguna
+    public function pengguna()
+    {
+        $pengguna = $this->penggunamodel->findAll();
+        $data = [
+            'title' => 'Manage Pengguna',
+            'pengguna' => $pengguna
+        ];
+        return view('Pages/pengguna', $data);
+    }
+
+    public function details_pengguna($id)
+    {
+        $detail = $this->penggunamodel->where('id_pengguna', $id)->findAll();
+        $data = [
+            'title' => 'Detail Pengguna',
+            'detail' => $detail
+        ];
+        return view('Pages/detail_pengguna', $data);
+    }
+
+    public function hapus_pengguna($id)
+    {
+        $this->penggunamodel->delete($id);
+        return redirect()->to('/pengguna');
     }
 }

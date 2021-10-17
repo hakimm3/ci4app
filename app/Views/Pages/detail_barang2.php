@@ -15,6 +15,10 @@
                         <input type="text" class="form-control item" name="nama" value="<?= $detail[0]['barang'] ?>">
                     </div>
                     <div class="form-group">
+                        <label class="label">ID Barang</label>
+                        <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['id_barang'] ?>">
+                    </div>
+                    <div class="form-group">
                         <label class="label">Kategori</label>
                         <input type="text" class="form-control item" name="alamat" value="<?= $detail[0]['kategori'] ?>">
                     </div>
@@ -26,12 +30,12 @@
                         <label class="label">Konsumen</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['konsumen'] ?>">
                     </div>
+                </div>
+                <div class="col-6">
                     <div class="form-group">
                         <label class="label">Stok</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['stok'] ?>">
                     </div>
-                </div>
-                <div class="col-6">
                     <div class="form-group">
                         <label class="label">Minimal Stok</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['min_stok'] ?>">
@@ -51,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <a href="/Pages/manajemenbarang" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/manajemenbarang') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

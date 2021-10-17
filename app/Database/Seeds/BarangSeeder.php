@@ -16,7 +16,7 @@ class BarangSeeder extends Seeder
         // $this->faker = Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 15; $i++) {
-            $id_pengguna = static::faker()->uuid();
+            $id_pengguna = "4052ba06-8916-4f68-a2b4-fa5f6452b2b2";
             $id_konsumen = static::faker()->uuid();
             $id_kategori = static::faker()->uuid();
             $id_pemasok = static::faker()->uuid();
@@ -32,20 +32,6 @@ class BarangSeeder extends Seeder
                     'stok' => static::faker()->randomNumber(3, false),
                     'min_stok' => 10,
                     'satuan' => 'buah',
-                    'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                    'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                    'create_by' => static::faker()->name(),
-                    'update_by' => static::faker()->name()
-                ],
-                'pengguna' => [
-                    'id_pengguna' => $id_pengguna,
-                    'nama_pengguna'    => static::faker()->name(),
-                    'alamat' => static::faker()->address(),
-                    'phone' => static::faker()->phoneNumber(),
-                    'email' => static::faker()->email(),
-                    'username' => static::faker()->userName(),
-                    'password' => static::faker()->md5(),
-                    'level' => 'admin',
                     'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
                     'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
                     'create_by' => static::faker()->name(),
@@ -84,7 +70,6 @@ class BarangSeeder extends Seeder
             ];
 
             // Using Query Builder
-            $this->db->table('pengguna')->insert($data['pengguna']);
             $this->db->table('konsumen')->insert($data['konsumen']);
             $this->db->table('kategori')->insert($data['kategori']);
             $this->db->table('pemasok')->insert($data['pemasok']);

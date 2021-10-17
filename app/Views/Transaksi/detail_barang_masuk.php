@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <a href="/transaksimasuk" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/transaksimasuk') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

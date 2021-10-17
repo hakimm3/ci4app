@@ -18,6 +18,6 @@ class MainSeeder extends Seeder
         // $this->call('KategoriSeeder');
         // $this->call('KonsumenSeeder');
         // $this->call('PemasokSeeder');
-        // $this->call('PenggunaSeeder');
+        $this->call('PenggunaSeeder');
     }
 }

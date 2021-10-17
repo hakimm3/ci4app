@@ -31,30 +31,36 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::index');
-$routes->get('/karyawan', 'Manage::karyawan');
-$routes->get('/pemasok', 'Manage::pemasok');
-$routes->get('/konsumen', 'Manage::konsumen');
+$routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
+    $routes->get('/', 'Pages::index');
+    $routes->get('/karyawan', 'Manage::karyawan');
+    $routes->get('/pemasok', 'Manage::pemasok');
+    $routes->get('/konsumen', 'Manage::konsumen');
 
-$routes->get('/tambah_karyawan', 'Manage::tambah_karywan');
-
-
-$routes->get('/beranda', 'Pages::index');
-$routes->get('/stokmenipis', 'Pages::stokmenipis');
-$routes->get('/manajemenbarang', 'Pages::manajemenbarang');
+    $routes->get('/tambah_karyawan', 'Manage::tambah_karywan');
 
 
-$routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
-$routes->get('/transaksikeluar', 'Transaksi::barangkeluar');
-$routes->get('/tambahtransaksimasuk', 'Transaksi::tambahbarangmasuk');
-$routes->get('/tambahtransaksikeluar', 'Transaksi::tambahbarangkeluar');
+    $routes->get('/beranda', 'Pages::index');
+    $routes->get('/stokmenipis', 'Pages::stokmenipis');
+    $routes->get('/manajemenbarang', 'Pages::manajemenbarang');
+    $routes->get('/pengguna', 'Pages::pengguna');
 
 
-$routes->get('/laporanbarangmasuk', 'Laporan::laporanbarangmasuk');
-$routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
-$routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
-$routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
+    $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
+    $routes->get('/transaksikeluar', 'Transaksi::barangkeluar');
+    $routes->get('/tambahtransaksimasuk', 'Transaksi::tambahbarangmasuk');
+    $routes->get('/tambahtransaksikeluar', 'Transaksi::tambahbarangkeluar');
 
+
+    $routes->get('/laporanbarangmasuk', 'Laporan::laporanbarangmasuk');
+    $routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
+    $routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
+    $routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
+});
+
+$routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
+    $routes->get('/Auth/login', 'Auth::login;');
+});
 
 
 /*

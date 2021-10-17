@@ -27,6 +27,7 @@ class Transaksi extends BaseController
     }
     public function barangmasuk()
     {
+
         $query = $this->db->query(' SELECT barang.nama_barang as barang,
                  barang.satuan as satuan,
                  barang_masuk.id_barang_masuk as id_barang_masuk,
@@ -42,7 +43,7 @@ class Transaksi extends BaseController
         $barangmasuk = $query->getResultArray();
         $data = [
             "title" => "Transaksi Barang Masuk",
-            'barang_masuk' => $barangmasuk
+            'barang_masuk' => $barangmasuk,
         ];
         return view('Transaksi/barangmasuk', $data);
     }

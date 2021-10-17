@@ -15,6 +15,10 @@
                         <input type="text" class="form-control item" name="nama" value="<?= $detail[0]['barang'] ?>">
                     </div>
                     <div class="form-group">
+                        <label class="label">ID Barang</label>
+                        <input type="text" class="form-control item" name="nama" value="<?= $detail[0]['id_barang'] ?>">
+                    </div>
+                    <div class="form-group">
                         <label class="label">Kategori</label>
                         <input type="text" class="form-control item" name="alamat" value="<?= $detail[0]['kategori'] ?>">
                     </div>
@@ -39,7 +43,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <a href="/stokmenipis" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/stokmenipis') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

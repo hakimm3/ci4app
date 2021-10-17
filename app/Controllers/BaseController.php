@@ -26,7 +26,9 @@ class BaseController extends Controller
      *
      * @var CLIRequest|IncomingRequest
      */
+
     protected $request;
+    // protected $level = session()->getFlashdata('level');
 
     /**
      * An array of helpers to be loaded automatically upon

@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <a href="/transaksikeluar" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/transaksikeluar') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

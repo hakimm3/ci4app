@@ -5266,3 +5266,8 @@ CRITICAL - 2021-10-16 20:18:23 --> Cannot add or update a child row: a foreign k
 #11 /home/hakim/Documents/GitHub/ci4app/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #12 /home/hakim/Documents/GitHub/ci4app/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/hakim/Doc...')
 #13 {main}
+ERROR - 2021-10-16 23:14:14 --> Incorrect table definition; there can be only one auto column and it must be defined as a key
+ERROR - 2021-10-16 23:20:35 --> Incorrect table definition; there can be only one auto column and it must be defined as a key
+ERROR - 2021-10-16 23:20:35 --> Table 'ci4app.pengguna' doesn't exist
+ERROR - 2021-10-16 23:20:52 --> Incorrect table definition; there can be only one auto column and it must be defined as a key
+ERROR - 2021-10-16 23:20:52 --> Table 'ci4app.pengguna' doesn't exist

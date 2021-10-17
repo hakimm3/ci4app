@@ -15,6 +15,10 @@
                         <input type="text" class="form-control item" name="nama" value="<?= $pemasok[0]['nama_pemasok'] ?>">
                     </div>
                     <div class="form-group">
+                        <label class="label">ID Pemasok</label>
+                        <input type="text" class="form-control item" name="nama" value="<?= $pemasok[0]['id_pemasok'] ?>">
+                    </div>
+                    <div class="form-group">
                         <label class="label">Alamat</label>
                         <input type="text" class="form-control item" name="alamat" value="<?= $pemasok[0]['alamat'] ?>">
                     </div>
@@ -32,7 +36,7 @@
             </div>
             <div class="form-group">
                 <!-- <button type="submit" class="btn btn-block create-account">Tambah</button> -->
-                <a href="/pemasok" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/manajemenbarang') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>
