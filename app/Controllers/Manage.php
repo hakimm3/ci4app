@@ -30,8 +30,8 @@ class Manage extends BaseController
     // Start Karyawan
     public function karyawan()
     {
-        $query = $this->db->query("SELECT *FROM karyawan WHERE deleted_at is NUll");
-        $karyawan = $query->getResultArray();
+
+        $karyawan = $this->karyawanmodel->findAll();
 
 
         $data = [
@@ -47,13 +47,60 @@ class Manage extends BaseController
     {
         $data = [
             'title' => 'Tambah Data Karyawan',
-            'level' => $this->logedUserData
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/tambah_karyawan', $data);
     }
 
     public function save_karyawan()
     {
+
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[karyawan.email]',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid',
+                    'is_unique' => 'Email sudah terdaftar'
+                ]
+            ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jabatan harus diisi'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/tambah_karyawan')->withInput()->with('validation', $validation);
+        }
+
         $data = [
             'id_karyawan' => $this->uuid(),
             'nama_karyawan' => $this->request->getVar('nama'),
@@ -93,13 +140,59 @@ class Manage extends BaseController
         $data = [
             'title' => 'Edit Data Karyawan',
             'karyawan' => $karyawan,
-            'level' => $this->logedUserData
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/edit_karyawan', $data);
     }
 
     public function save_edit_karyawan()
     {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid'
+                ]
+            ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jabatan harus diisi'
+                ]
+            ]
+
+        ])) {
+            $id_karyawan = $this->request->getVar('id_karyawan');
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/edit_karyawan/' . $id_karyawan)->withInput()->with('validation', $validation);
+        }
+
         $id_karyawan = $this->request->getVar('id_karyawan');
         $data = [
             'nama_karyawan' => $this->request->getVar('nama'),
@@ -115,9 +208,8 @@ class Manage extends BaseController
     // Start Pemasok
     public function pemasok()
     {
-        $query = $this->db->query("SELECT *FROM pemasok WHERE deleted_at is NUll");
-        $pemasok = $query->getResultArray();
 
+        $pemasok = $this->pemasokmodel->findAll();
         $data = [
             "title" => "Manajemen Pemasok",
             "active" => "manage-pemasok",
@@ -130,14 +222,54 @@ class Manage extends BaseController
     {
         $data = [
             'title' => 'Tambah Data Pemasok',
-            'level' => $this->logedUserData
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/tambah_pemasok', $data);
     }
 
     public function save_pemasok()
     {
-        // ]);
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[karyawan.email]',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid',
+                    'is_unique' => 'Email sudah terdaftar'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/tambah_pemasok')->withInput()->with('validation', $validation);
+        }
+
+
         $data = [
             'id_pemasok' => $this->uuid(),
             'nama_pemasok' => $this->request->getVar('nama'),
@@ -174,13 +306,54 @@ class Manage extends BaseController
         $data = [
             'title' => 'Edit Data Pemasok',
             'level' => $this->logedUserData,
-            'pemasok' => $pemasok
+            'pemasok' => $pemasok,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/edit_pemasok', $data);
     }
 
     public function save_edit_pemasok()
     {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid'
+                ]
+            ]
+
+        ])) {
+
+            $id_pemasok = $this->request->getVar('id_pemasok');
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/edit_pemasok/' . $id_pemasok)->withInput()->with('validation', $validation);
+        }
+
         $id_pemasok = $this->request->getVar('id_pemasok');
         $data = [
             'nama_pemasok' => $this->request->getVar('nama'),
@@ -213,14 +386,53 @@ class Manage extends BaseController
     {
         $data = [
             'title' => 'Tambah Data Konsumen',
-            'level' => $this->logedUserData
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/tambah_konsumen', $data);
     }
 
     public function save_konsumen()
     {
-        // ]);
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[karyawan.email]',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid',
+                    'is_unique' => 'Email sudah terdaftar'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/tambah_konsumen')->withInput()->with('validation', $validation);
+        }
+
         $data = [
             'id_konsumen' => $this->uuid(),
             'nama_konsumen' => $this->request->getVar('nama'),
@@ -257,13 +469,55 @@ class Manage extends BaseController
         $data = [
             'title' => 'Edit Data Konsumen',
             'level' => $this->logedUserData,
-            'konsumen' => $konsumen
+            'konsumen' => $konsumen,
+            'validation' => \Config\Services::validation()
         ];
         return view('Manage/edit_konsumen', $data);
     }
 
     public function save_edit_konsumen()
     {
+
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'errors' => [
+                    'required' => 'Nama harus diisi',
+                    'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
+                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Alamat harus diisi',
+                    'min_length' => 'Alamat tidak valid',
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required|min_length[11]|max_length[15]',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi',
+                    'min_length' => 'No Handphone tidak boleh kurang dari 11 karakter',
+                    'max_length' => 'No Handphone tidak boleh lebih dari 15 karakter'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email tidak valid'
+                ]
+            ]
+
+        ])) {
+
+            $id_konsumen = $this->request->getVar('id_konsumen');
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Manage/edit_konsumen/' . $id_konsumen)->withInput()->with('validation', $validation);
+        }
+
         $id_konsumen = $this->request->getVar('id_konsumen');
         $data = [
             'nama_konsumen' => $this->request->getVar('nama'),

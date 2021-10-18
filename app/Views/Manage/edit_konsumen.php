@@ -14,20 +14,24 @@
                     <div class="form-group">
                         <label class="label">Konsumen</label>
                         <input type="text" class="form-control item" name="nama" value="<?= $konsumen[0]['nama_konsumen'] ?>">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'nama') : '' ?></span>
                     </div>
                     <div class="form-group">
                         <label class="label">Alamat</label>
                         <input type="text" class="form-control item" name="alamat" value="<?= $konsumen[0]['alamat'] ?>">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'alamat') : '' ?></span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label class="label">No Handphone</label>
+                        <label class="label">No Hanphone</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $konsumen[0]['phone'] ?>">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'phone') : '' ?></span>
                     </div>
                     <div class="form-group">
                         <label class="label">Email</label>
                         <input type="text" class="form-control item" name="email" value="<?= $konsumen[0]['email'] ?>">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
                     </div>
                 </div>
             </div>

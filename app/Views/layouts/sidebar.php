@@ -108,7 +108,7 @@ use Faker\Provider\Base;
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('/Auth/logout') ?>">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span></a>
     </li>
 

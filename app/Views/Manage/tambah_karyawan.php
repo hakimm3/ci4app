@@ -10,23 +10,28 @@
             <br>
             <div class="form-group">
                 <label class="label">Nama</label>
-                <input type="text" class="form-control item" name="nama" required>
+                <input type="text" class="form-control item" name="nama" value="<?= set_value('nama') ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'nama') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">Alamat</label>
-                <input type="text" class="form-control item" name="alamat" required>
+                <input type="text" class="form-control item" name="alamat" value="<?= set_value('alamat') ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'alamat') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">No Handphone</label>
-                <input type="text" class="form-control item" name="phone" required>
+                <input type="number" class="form-control item" name="phone" value="<?= set_value('phone') ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'phone') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">Email</label>
-                <input type="text" class="form-control item" name="email" required>
+                <input type="text" class="form-control item" name="email" value="<?= set_value('email') ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">Jabatan</label>
-                <input type="text" class="form-control item" name="jabatan" required>
+                <input type="text" class="form-control item" name="jabatan" value="<?= set_value('jabatan') ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'jabatan') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label"></label>
