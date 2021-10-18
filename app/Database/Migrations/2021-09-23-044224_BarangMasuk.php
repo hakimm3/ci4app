@@ -15,10 +15,6 @@ class BarangMasuk extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '37',
             ],
-            'id_pengguna' => [
-                'type' => 'VARCHAR',
-                'constraint' => '37',
-            ],
             'no_faktur' => [
                 'type' => 'INT',
                 'constraint' => '8',
@@ -70,7 +66,6 @@ class BarangMasuk extends Migration
 
         // menambah foreign key
         $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_barang', 'barang', 'id_barang', 'CASCADE', 'CASCADE');
 
         //membuat table

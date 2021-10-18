@@ -14,8 +14,6 @@ class PenggunaSeeder extends Seeder
     {
         $this->db = \Config\Database::connect();
         // $this->faker = Faker\Factory::create('id_ID');
-
-
         $data = [
             'pengguna' => [
                 'id_pengguna' => "4052ba06-8916-4f68-a2b4-fa5f6452b2b2",
@@ -27,6 +25,16 @@ class PenggunaSeeder extends Seeder
                 'password' => "$2y$10$16IwPlJlVVt/zEsRfS3HMOt7VaE4STKbnHy68alFWcpNBiT/Kt2iu",
                 'level' => 'super_admin'
             ],
+            [
+                'id_pengguna' => "82a1a49d-9cfb-48c8-acff-362ac9b56ca6 ",
+                'nama_pengguna'    => "admin",
+                'alamat' => "Ds. Kejobong",
+                'phone' => "082325150653",
+                'email' => "admin@aa.com",
+                'username' => "admin",
+                'password' => "$2y$10$16IwPlJlVVt/zEsRfS3HMOt7VaE4STKbnHy68alFWcpNBiT/Kt2iu",
+                'level' => 'admin'
+            ]
         ];
 
         // Using Query Builder

@@ -10,7 +10,7 @@ class SuperCheckFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('Super') == 'admin') {
+        if (session()->get('level') == 'super_admin') {
             return redirect()->back();
         }
     }

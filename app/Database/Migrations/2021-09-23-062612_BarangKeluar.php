@@ -15,10 +15,6 @@ class BarangKeluar extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '37'
             ],
-            'id_pengguna' => [
-                'type' => 'VARCHAR',
-                'constraint' => '37'
-            ],
             'id_barang' => [
                 'type' => 'VARCHAR',
                 'constraint' => '37'
@@ -64,12 +60,11 @@ class BarangKeluar extends Migration
 
         // menambah dan mengubah foreign key
         $this->forge->addForeignKey('id_barang', 'barang', 'id_barang', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_pengguna', 'pengguna', 'id_pengguna', 'CASCADE', 'CASCADE');
 
         //membuat table
         $this->forge->createTable('barang_keluar', true);
 
-        $this->db->enableForeignKeyChecks();
+        $this->db->disableForeignKeyChecks();
     }
 
     public function down()

@@ -15,10 +15,6 @@ class Barang extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '37'
             ],
-            'id_pengguna' => [
-                'type' => 'VARCHAR',
-                'constraint' => '37'
-            ],
             'id_konsumen' => [
                 'type' => 'VARCHAR',
                 'constraint' => '37'
@@ -73,12 +69,11 @@ class Barang extends Migration
         ]);
         // Membuat primary key
         $this->forge->addKey('id_barang', true);
-        
+
         // menambah dan mengubah foreign key
-        $this->forge->addForeignKey('id_pengguna','pengguna','id_pengguna','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_konsumen','konsumen','id_konsumen','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_kategori','kategori','id_kategori','CASCADE','CASCADE');
-        $this->forge->addForeignKey('id_pemasok','pemasok','id_pemasok','CASCADE','CASCADE');
+        $this->forge->addForeignKey('id_konsumen', 'konsumen', 'id_konsumen', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_pemasok', 'pemasok', 'id_pemasok', 'CASCADE', 'CASCADE');
 
         //membuat table
         $this->forge->createTable('barang', true);

@@ -16,7 +16,6 @@ class BarangMasukSeeder extends Seeder
         // $this->faker = Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 15; $i++) {
-            $id_pengguna = '4052ba06-8916-4f68-a2b4-fa5f6452b2b2';
             $id_konsumen = static::faker()->uuid();
             $id_kategori = static::faker()->uuid();
             $id_pemasok = static::faker()->uuid();
@@ -25,7 +24,6 @@ class BarangMasukSeeder extends Seeder
             $data = [
                 'barang_masuk' => [
                     'id_barang_masuk' => static::faker()->uuid(),
-                    'id_pengguna' => $id_pengguna,
                     'id_kategori' => $id_kategori,
                     'id_barang' => $id_barang,
                     'no_faktur' => static::faker()->randomNumber(8, false),
@@ -37,7 +35,6 @@ class BarangMasukSeeder extends Seeder
                 ],
                 'barang' => [
                     'id_barang' => $id_barang,
-                    'id_pengguna' => $id_pengguna,
                     'id_konsumen' => $id_konsumen,
                     'id_kategori' => $id_kategori,
                     'id_pemasok' => $id_pemasok,
@@ -50,20 +47,7 @@ class BarangMasukSeeder extends Seeder
                     'create_by' => static::faker()->name(),
                     'update_by' => static::faker()->name()
                 ],
-                // 'pengguna' => [
-                //     'id_pengguna' => $id_pengguna,
-                //     'nama_pengguna'    => static::faker()->name(),
-                //     'alamat' => static::faker()->address(),
-                //     'phone' => static::faker()->phoneNumber(),
-                //     'email' => static::faker()->email(),
-                //     'username' => static::faker()->userName(),
-                //     'password' => static::faker()->md5(),
-                //     'level' => 'admin',
-                //     'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                //     'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                //     'create_by' => static::faker()->name(),
-                //     'update_by' => static::faker()->name()
-                // ],
+
                 'kategori' => [
                     'id_kategori' => $id_kategori,
                     'nama_kategori' => static::faker()->word(),

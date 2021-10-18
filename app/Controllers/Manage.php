@@ -17,6 +17,8 @@ class Manage extends BaseController
 
     public function __construct()
     {
+        helper('Form_helper');
+        helper(['url', 'form']);
         $this->db = \Config\Database::connect();
         $this->karyawanmodel = new KaryawanModel();
         $this->pemasokmodel = new PemasokModel();
@@ -78,7 +80,8 @@ class Manage extends BaseController
         $data = [
             'title' => "Detail Karyawan",
             'karyawan' => $karyawan,
-            'level' => $this->logedUserData
+            'level' => $this->logedUserData,
+            "active" => "manage-karyawan"
         ];
         return view('Manage/detail_karyawan', $data);
     }
@@ -103,6 +106,7 @@ class Manage extends BaseController
             'alamat' => $this->request->getVar('alamat'),
             'phone' => $this->request->getVar('phone'),
             'email' => $this->request->getVar('email'),
+            'jabatan' => $this->request->getVar('jabatan')
         ];
 
         $this->karyawanmodel->update($id_karyawan, $data);

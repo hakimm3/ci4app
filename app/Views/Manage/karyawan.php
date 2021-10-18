@@ -6,7 +6,7 @@
 <form action="/Manage/tambah_karyawan" method="post">
     <button class="btn btn-primary my-3" name="tambah_karyawan">Tambah Data Karyawan</button>
 </form>
-<!-- DataTales Example --><?= dd(session()->get('LogedUser')) ?>
+<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">

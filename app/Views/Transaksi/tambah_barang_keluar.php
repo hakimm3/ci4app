@@ -19,6 +19,7 @@
             <div class="form-group">
                 <label class="label">Qty</label>
                 <input type="number" class="form-control item" name="qty" required>
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'qty') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">Konsumen</label>

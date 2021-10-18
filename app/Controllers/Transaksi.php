@@ -19,6 +19,8 @@ class Transaksi extends BaseController
     protected $logedUserData;
     public function __construct()
     {
+        helper('Form_helper');
+        helper(['url', 'form']);
         $this->db = $this->db = \Config\Database::connect();
         $this->barangmasukmodel = new BarangMasukModel();
         $this->barangmodel = new BarangModel();
@@ -105,13 +107,35 @@ class Transaksi extends BaseController
             'detail' => $detail,
             'kategori' => $kategori,
             'barang' => $barang,
-            'level' => $level
+            'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
         return view('Transaksi/edit_barang_masuk', $data);
     }
 
     public function save_barang_masuk()
     {
+        if (!$this->validate([
+            'no_faktur' => [
+                'rules' => 'required|max_length[8]',
+                'errors' => [
+                    'required' => 'Nomor Faktur harus diisi',
+                    'max_length' => 'Maksimal 8 digit'
+                ]
+            ],
+            'qty' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Jumlah harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ]
+        ])) {
+            $id = $this->request->getVar('id_barang_masuk');
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Transaksi/edit_barang_masuk/' . $id)->withInput()->with('validation', $validation);
+        }
+
         $id = $this->request->getVar('id_barang_masuk');
         $barang_masuk = [
             'id_barang' => $this->request->getVar('id_barang'),
@@ -188,30 +212,47 @@ class Transaksi extends BaseController
             'title' => 'Tambah Barang Keluar',
             'barang' => $barang,
             'konsumen' => $konsumen,
-            'level' => $level
+            'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
         return view('Transaksi/tambah_barang_keluar', $data);
     }
 
     public function edit_barang_keluar($id)
     {
-        $query = $this->db->query("SELECT *FROM barang_keluar WHERE id_barang_keluar='$id' ");
-        $barang_keluar = $query->getResultArray();
+        $barang_keluar = $this->barangkeluarmodel->where('id_barang_keluar', $id)->findAll();
+        // dd($barang_keluar);
         $barang = $this->barangmodel->findAll();
         $konsumen = $this->konsumenmodel->findAll();
         $level = $this->logedUserData;
         $data = [
-            'title' => 'Tambah Barang Keluar',
+            'title' => 'Edit Barang Keluar',
             'barang' => $barang,
             'konsumen' => $konsumen,
             'barang_keluar' => $barang_keluar,
-            'level' => $level
+            'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
         return view('Transaksi/edit_barang_keluar', $data);
     }
 
     public function savebarangkeluar()
     {
+
+        if (!$this->validate([
+            'qty' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Jumlah harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Transaksi/tambah_barang_keluar')->withInput()->with('validation', $validation);
+        }
+
         $id = $this->request->getVar('id_barang');
 
         //Mendapat nilai stok
@@ -235,6 +276,7 @@ class Transaksi extends BaseController
             'id_konsumen' => $this->request->getVar('id_konsumen'),
         ];
 
+
         $this->barangkeluarmodel->insert($barang_keluar);
         $this->barangmodel->update($id, $barang);
 
@@ -243,6 +285,21 @@ class Transaksi extends BaseController
 
     public function saveeditbarangkeluar()
     {
+        if (!$this->validate([
+            'qty' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Jumlah harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            $id = $this->request->getVar('id_barang_keluar');
+            return redirect()->to('/Transaksi/edit_barang_keluar/' . $id)->withInput()->with('validation', $validation);
+        }
+
         $id = $this->request->getVar('id_barang');
 
 

@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <!-- <button type="submit" class="btn btn-block create-account">Tambah</button> -->
-                <a href="<?= base_url('/manajemenbarang') ?>" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/pemasok') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label class="label">Jabatan</label>
-                        <input type="text" class="form-control item" name="email" value="<?= $karyawan[0]['jabatan'] ?>">
+                        <input type="text" class="form-control item" name="jabatan" value="<?= $karyawan[0]['jabatan'] ?>">
                     </div>
                 </div>
             </div>

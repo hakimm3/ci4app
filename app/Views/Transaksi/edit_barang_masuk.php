@@ -28,10 +28,12 @@
             <div class="form-group">
                 <label class="label">Qty</label>
                 <input type="text" class="form-control item" name="qty" value="<?= $detail[0]['qty'] ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'qty') : '' ?></span>
             </div>
             <div class="form-group">
                 <label class="label">No Faktur</label>
                 <input type="text" class="form-control item" name="no_faktur" value="<?= $detail[0]['no_faktur'] ?>">
+                <span class="text-danger"><?= isset($validation) ? display_error($validation, 'no_faktur') : '' ?></span>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account">Simpan</button>

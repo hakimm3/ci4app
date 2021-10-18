@@ -16,7 +16,6 @@ class BarangSeeder extends Seeder
         // $this->faker = Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 15; $i++) {
-            $id_pengguna = "4052ba06-8916-4f68-a2b4-fa5f6452b2b2";
             $id_konsumen = static::faker()->uuid();
             $id_kategori = static::faker()->uuid();
             $id_pemasok = static::faker()->uuid();
@@ -24,7 +23,6 @@ class BarangSeeder extends Seeder
             $data = [
                 'barang' => [
                     'id_barang' => static::faker()->uuid(),
-                    'id_pengguna' => $id_pengguna,
                     'id_konsumen' => $id_konsumen,
                     'id_kategori' => $id_kategori,
                     'id_pemasok' => $id_pemasok,

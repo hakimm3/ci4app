@@ -34,18 +34,21 @@ $routes->setAutoRoute(true);
 $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     // Add all routes need protectted by this filter
 
-    $routes->get('/', 'Pages::index');
+    $routes->get('/', 'Pages::dashboard');
     $routes->get('/karyawan', 'Manage::karyawan');
     $routes->get('/pemasok', 'Manage::pemasok');
     $routes->get('/konsumen', 'Manage::konsumen');
 
     $routes->get('/tambah_karyawan', 'Manage::tambah_karywan');
 
-
-    $routes->get('/beranda', 'Pages::index');
+    $routes->get('/Pages', 'Pages::dashboard');
+    $routes->get('/beranda', 'Pages::dashboard');
     $routes->get('/stokmenipis', 'Pages::stokmenipis');
+    $routes->get('/Pages/stokmenipis', 'Pages::stokmenipis');
     $routes->get('/manajemenbarang', 'Pages::manajemenbarang');
+    $routes->get('/Pages/manajemenbarang', 'Pages::manajemenbarang');
     $routes->get('/pengguna', 'Pages::pengguna');
+    $routes->get('/Pages/pengguna', 'Pages::pengguna');
 
 
     $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
@@ -59,7 +62,7 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
     $routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
 
-    $routes->get('/Auth/login', 'Auth::Register');
+    $routes->get('/Auth/login', 'Auth::login');
 });
 
 $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
@@ -68,10 +71,10 @@ $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
 
 $routes->group('', ['filter' => 'LevelCheck'], function ($routes) {
     $routes->get('/Pages/pengguna', 'Pages::pengguna');
-    $routes->get('/Pengguna', 'Pages::pengguna');
-    $routes->get('/Auth/register', 'Pages::pengguna');
-    $routes->get('/Pages/details_pengguna/(:segment)', 'Pages::pengguna');
-    $routes->get('/Pages/edit_pengguna/(:segment)', 'Pages::pengguna');
+    $routes->get('/pengguna', 'Pages::pengguna');
+    $routes->get('/Auth/register', 'Auth::register');
+    $routes->get('/Pages/details_pengguna', 'Pages::detail_pengguna');
+    $routes->get('/Pages/edit_pengguna', 'Pages::edit_pengguna');
 });
 
 /*

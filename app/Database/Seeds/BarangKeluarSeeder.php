@@ -16,7 +16,6 @@ class BarangKeluarSeeder extends Seeder
         // $this->faker = Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 15; $i++) {
-            $id_pengguna = "4052ba06-8916-4f68-a2b4-fa5f6452b2b2";
             $id_konsumen = static::faker()->uuid();
             $id_kategori = static::faker()->uuid();
             $id_pemasok = static::faker()->uuid();
@@ -25,7 +24,6 @@ class BarangKeluarSeeder extends Seeder
             $data = [
                 'barang_keluar' => [
                     'id_barang_keluar' => static::faker()->uuid(),
-                    'id_pengguna' => $id_pengguna,
                     'id_barang' => $id_barang,
                     'qty' => static::faker()->randomNumber(2, false),
                     'tanggal_keluar' => static::faker()->date(),
@@ -36,7 +34,6 @@ class BarangKeluarSeeder extends Seeder
                 ],
                 'barang' => [
                     'id_barang' => $id_barang,
-                    'id_pengguna' => $id_pengguna,
                     'id_konsumen' => $id_konsumen,
                     'id_kategori' => $id_kategori,
                     'id_pemasok' => $id_pemasok,
@@ -49,20 +46,6 @@ class BarangKeluarSeeder extends Seeder
                     'create_by' => static::faker()->name(),
                     'update_by' => static::faker()->name()
                 ],
-                // 'pengguna' => [
-                //     'id_pengguna' => $id_pengguna,
-                //     'nama_pengguna'    => static::faker()->name(),
-                //     'alamat' => static::faker()->address(),
-                //     'phone' => static::faker()->phoneNumber(),
-                //     'email' => static::faker()->email(),
-                //     'username' => static::faker()->userName(),
-                //     'password' => static::faker()->md5(),
-                //     'level' => 'super_admin',
-                //     'created_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                //     'updated_at' => static::faker()->dateTimeBetween('-4 week')->format('Y-m-d H:i:s'),
-                //     'create_by' => static::faker()->name(),
-                //     'update_by' => static::faker()->name()
-                // ],
                 'konsumen' => [
                     'id_konsumen' => $id_konsumen,
                     'nama_konsumen'    => static::faker()->name(),

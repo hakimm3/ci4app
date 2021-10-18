@@ -12,7 +12,7 @@ class BarangKeluarModel extends Model
     protected $useSoftDeletes = true;
     protected $useAutoIncrement = false;
 
-    protected $allowedFields = ['id_barang_keluar', 'id_barang', 'qty'];
+    protected $allowedFields = ['id_barang_keluar', 'tanggal_keluar', 'id_barang', 'qty'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';

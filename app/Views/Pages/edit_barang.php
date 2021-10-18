@@ -27,6 +27,7 @@
                         <div class="form-group">
                             <label class="label">Stok</label>
                             <input type="text" class="form-control item" name="stok" value="<?= $barang[0]['stok'] ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'stok') : '' ?></span>
                         </div>
                     </div>
 
@@ -34,6 +35,7 @@
                         <div class="form-group">
                             <label class="label">Minimal Stok</label>
                             <input type="text" class="form-control item" name="min_stok" value="<?= $barang[0]['min_stok'] ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'min_stok') : '' ?></span>
                         </div>
                         <div class="form-group">
                             <label class="label">Satuan</label>

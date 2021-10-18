@@ -27,6 +27,8 @@ class Pages extends BaseController
     protected $login;
     public function __construct()
     {
+        helper('Form_helper');
+        helper(['url', 'form']);
         $this->db = \Config\Database::connect();
         $this->barangmodel = new BarangModel();
         $this->kategorimodel = new KategoriModel();
@@ -39,8 +41,9 @@ class Pages extends BaseController
         $this->login = session()->get('LogedUser');
     }
 
-    public function index()
+    public function dashboard()
     {
+
         $logedUserID = session()->get('LoggedUser');
         $level = $this->logedUserData;
         $logedUserData = $this->penggunamodel->where('id_pengguna', $logedUserID)->findAll();
@@ -157,7 +160,8 @@ class Pages extends BaseController
             'title' => 'Edit Data Barang',
             'barang' => $barang,
             'kategori' => $kategori,
-            'level' => $level
+            'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
 
         session()->setFlashdata('edit_success', 'Data Berhasil di Ubah');
@@ -167,6 +171,28 @@ class Pages extends BaseController
 
     public function save_edit_barang()
     {
+        if (!$this->validate([
+            'stok' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Stok harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ],
+            'min_stok' => [
+                'rules' => 'required|max_length[1]',
+                'errors' => [
+                    'required' => 'Minimal Stok harus diisi',
+                    'max_length' => 'Maksimal 1 digit'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            $id = $id_barang = $this->request->getVar('id_barang');
+            return redirect()->to('/Pages/edit_barang2/' . $id)->withInput()->with('validation', $validation);
+        }
+
+
         $id_barang = $this->request->getVar('id_barang');
         $data = [
             'nama_barang' => $this->request->getVar('nama'),
@@ -191,7 +217,8 @@ class Pages extends BaseController
             'title' => 'Edit Data Barang',
             'barang' => $barang,
             'kategori' => $kategori,
-            'level' => $level
+            'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('Pages/edit_barang2', $data);
@@ -199,6 +226,28 @@ class Pages extends BaseController
 
     public function save_edit_barang2()
     {
+        if (!$this->validate([
+            'stok' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Stok harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ],
+            'min_stok' => [
+                'rules' => 'required|max_length[1]',
+                'errors' => [
+                    'required' => 'Minimal Stok harus diisi',
+                    'max_length' => 'Maksimal 1 digit'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            $id = $id_barang = $this->request->getVar('id_barang');
+            return redirect()->to('/Pages/edit_barang2/' . $id)->withInput()->with('validation', $validation);
+        }
+
+
         $id_barang = $this->request->getVar('id_barang');
         $data = [
             'nama_barang' => $this->request->getVar('nama'),
@@ -253,12 +302,50 @@ class Pages extends BaseController
             'konsumen' => $konsumen,
             'pemasok' => $pemasok,
             'level' => $level,
+            'validation' => \Config\Services::validation()
         ];
         return view('Pages/tambah_barang', $data);
     }
 
     public function savebarang()
     {
+
+        if (!$this->validate([
+            'qty' => [
+                'rules' => 'required|max_length[3]',
+                'errors' => [
+                    'required' => 'Jumlah harus diisi',
+                    'max_length' => 'Maksimal 3 digit'
+                ]
+            ],
+            'min_stok' => [
+                'rules' => 'required|max_length[1]',
+                'errors' => [
+                    'required' => 'Minimal Stok harus diisi',
+                    'max_length' => 'Maksimal 1 digit'
+                ]
+            ],
+            'no_faktur' => [
+                'rules' => 'required|max_length[8]|is_unique[barang_masuk.no_faktur]',
+                'errors' => [
+                    'required' => 'Nomor Faktur harus diisi',
+                    'max_length' => 'Maksimal 8 digit',
+                    'is_unique' => 'No Faktur Sudah di gunakan'
+                ]
+            ],
+            'nama_barang' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Barang harus diisi'
+                ]
+            ]
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Pages/tambahbarang')->withInput()->with('validation', $validation);
+        }
+
+
         $barang = [
             'id_barang' => $this->uuid(),
             'id_pemasok' => $this->request->getVar('id_pemasok'),
@@ -277,9 +364,6 @@ class Pages extends BaseController
             'no_faktur' => $this->request->getVar('no_faktur'),
             'id_kategori' => $this->request->getVar('id_kategori')
         ];
-
-
-
 
         $this->barangmasukmodel->insert($barangmasuk);
         $this->barangmodel->insert($barang);
