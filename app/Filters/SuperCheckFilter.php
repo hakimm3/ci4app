@@ -6,14 +6,12 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthCheckFilter implements FilterInterface
+class SuperCheckFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->has('LogedUser')) {
-            return redirect()->to('/Auth/logout');
-            // return view('/Auth/login');
-
+        if (session()->get('Super') == 'admin') {
+            return redirect()->back();
         }
     }
 

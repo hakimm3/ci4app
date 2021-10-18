@@ -25,6 +25,7 @@ class Transaksi extends BaseController
         $this->kategorimodel = new KategoriModel();
         $this->barangkeluarmodel = new BarangKeluarModel();
         $this->konsumenmodel = new KonsumenModel();
+        session();
         $this->logedUserData = session()->get('level');
     }
     public function barangmasuk()

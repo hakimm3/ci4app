@@ -17,6 +17,7 @@ class Auth extends BaseController
         helper(['url', 'form']);
         $this->penggunamodel = new PenggunaModel();
         $this->logedUserData = session()->get('level');
+        session();
     }
 
     public function register()
@@ -147,25 +148,25 @@ class Auth extends BaseController
             } else {
                 $user_id = $userinfo['id_pengguna'];
                 $user_level = $userinfo['level'];
-                $data = [
-                    'level' => $userinfo['level'],
-                    'LoggedUser' => $userinfo['id_pengguna']
-                ];
-                session()->set($data);
-                return redirect()->to('/');
+                session()->set('LogedUser', $user_id);
+                session()->set('level', $user_level);
+                return redirect()->to('/Pages');
             }
         }
     }
 
     public function logout()
     {
+
         // return redirect()->to('/auth/login?access=out');
         if (!session()->has('LogedUser')) {
-            return redirect()->to('/auth/login?access=out');
+            session()->remove('LogedUser');
+            session()->remove('level');
+            return redirect()->to('/auth/login');
         }
 
         if (session()->has('LogedUser')) {
-            session()->remove('LoggedUser');
+            session()->remove('LogedUser');
             session()->remove('level');
             return redirect()->to('/auth/login?access=out');
         }

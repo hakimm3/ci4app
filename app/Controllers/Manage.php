@@ -21,6 +21,7 @@ class Manage extends BaseController
         $this->karyawanmodel = new KaryawanModel();
         $this->pemasokmodel = new PemasokModel();
         $this->konsumenmodel = new KonsumenModel();
+        session();
         $this->logedUserData = session()->get('level');
     }
 

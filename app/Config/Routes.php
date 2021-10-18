@@ -66,6 +66,13 @@ $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
     $routes->get('/Auth/login', 'Auth::login;');
 });
 
+$routes->group('', ['filter' => 'LevelCheck'], function ($routes) {
+    $routes->get('/Pages/pengguna', 'Pages::pengguna');
+    $routes->get('/Pengguna', 'Pages::pengguna');
+    $routes->get('/Auth/register', 'Pages::pengguna');
+    $routes->get('/Pages/details_pengguna/(:segment)', 'Pages::pengguna');
+    $routes->get('/Pages/edit_pengguna/(:segment)', 'Pages::pengguna');
+});
 
 /*
  * --------------------------------------------------------------------

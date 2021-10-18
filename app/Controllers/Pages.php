@@ -24,6 +24,7 @@ class Pages extends BaseController
     protected $pemasokmodel;
     protected $penggunamodel;
     protected $logedUserData;
+    protected $login;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
@@ -33,7 +34,9 @@ class Pages extends BaseController
         $this->konsumenmodel = new KonsumenModel();
         $this->pemasokmodel = new PemasokModel();
         $this->penggunamodel = new PenggunaModel();
+        session();
         $this->logedUserData = session()->get('level');
+        $this->login = session()->get('LogedUser');
     }
 
     public function index()
@@ -62,7 +65,8 @@ class Pages extends BaseController
             "title" => "Beranda",
             "active" => "beranda",
             'loged_data' => $logedUserData,
-            'level' => $level
+            'level' => $level,
+            'LogedUser' => $this->login
         ];
         return view('Pages/dashboard', $data);
     }
@@ -85,7 +89,8 @@ class Pages extends BaseController
             "title" => "Stok Menipis",
             "active" => "stok-menipis",
             'stok_menipis' => $stok_menipis,
-            'level' => $level
+            'level' => $level,
+            'LogedUser' => $this->login
         ];
         return view('Pages/stokmenipis', $data);
     }

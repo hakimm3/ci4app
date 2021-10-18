@@ -10,7 +10,7 @@ class AlreadyLoginFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->has('LoggedUser')) {
+        if (session()->has('LoggedUser')) {
             return redirect()->back();
         }
     }

@@ -21,6 +21,7 @@ class Laporan extends BaseController
         $this->konsumenmodel = new KonsumenModel();
         $this->logedUserData = session()->get('level');
         $this->pemasokmodel = new PemasokModel();
+        session();
     }
 
     public function laporanbarangmasuk()

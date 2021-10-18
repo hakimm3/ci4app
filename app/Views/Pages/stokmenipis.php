@@ -2,7 +2,7 @@
 <?php $this->section('content'); ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Stok Barang Menipis</h1>
+<h1 class="h3 mb-2 text-gray-800">Stok Barang Menipis</h1><?= dd(session()->get('LogedUser')) ?>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">

@@ -3,6 +3,7 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Laporan Pemasok</h1>
+
 <form action="/Laporan/exportexcelpemasok" method="post">
     <button type="submit" class="btn btn-success my-3">Export ke Excel</button>
 </form>

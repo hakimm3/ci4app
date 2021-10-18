@@ -3,6 +3,7 @@
 <div class="registration-form">
     <form action="/Auth/save" method="post">
 
+
         <?php if (!empty(session()->getFlashdata('fail'))) : ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
         <?php endif; ?>
