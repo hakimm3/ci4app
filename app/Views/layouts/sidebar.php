@@ -90,17 +90,18 @@ use Faker\Provider\Base;
             </div>
         </div>
     </li>
+    <?php if ($level == 'super_admin') : ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('/pengguna') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Manajemen Pengguna</span></a>
+        </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('/pengguna') ?>">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Manajemen Pengguna</span></a>
-    </li>
-
+    <?php endif; ?>
     <!-- Divider -->
     <hr class="sidebar-divider">
 

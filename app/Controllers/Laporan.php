@@ -14,10 +14,12 @@ class Laporan extends BaseController
     protected $db;
     protected $konsumenmodel;
     protected $pemasokmodel;
+    protected $logedUserData;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
         $this->konsumenmodel = new KonsumenModel();
+        $this->logedUserData = session()->get('level');
         $this->pemasokmodel = new PemasokModel();
     }
 
@@ -42,7 +44,8 @@ class Laporan extends BaseController
         $barangmasuk = $query->getResultArray();
         $data = [
             "title" => "Laporan Barang Masuk",
-            'barang_masuk' => $barangmasuk
+            'barang_masuk' => $barangmasuk,
+            'level' => $this->logedUserData
         ];
         return view('Laporan/laporanbarangmasuk', $data);
     }
@@ -61,9 +64,11 @@ class Laporan extends BaseController
         join konsumen on barang.id_konsumen = konsumen.id_konsumen
         join barang_keluar on barang.id_barang = barang_keluar.id_barang;");
         $barangkeluar = $query->getResultArray();
+
         $data = [
             "title" => "Laporan barang Keluar",
-            'barang_keluar' => $barangkeluar
+            'barang_keluar' => $barangkeluar,
+            'level' => $this->logedUserData
         ];
         return view('Laporan/laporanbarangkeluar', $data);
     }
@@ -73,7 +78,8 @@ class Laporan extends BaseController
         $pemasok = $this->pemasokmodel->findAll();
         $data = [
             "title" => "Laporan Pemasok",
-            'pemasok' => $pemasok
+            'pemasok' => $pemasok,
+            'level' => $this->logedUserData
         ];
         return view('Laporan/laporanpemasok', $data);
     }
@@ -82,7 +88,8 @@ class Laporan extends BaseController
         $konsumen = $this->konsumenmodel->findAll();
         $data = [
             "title" => "Laporan Konsumen",
-            'konsumen' => $konsumen
+            'konsumen' => $konsumen,
+            'level' => $this->logedUserData
         ];
         return view('Laporan/laporankonsumen', $data);
     }

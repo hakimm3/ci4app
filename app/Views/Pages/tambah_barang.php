@@ -31,14 +31,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="label">Konsumen</label>
-                        <select name="id_konsumen" class="form-control item">
-                            <?php foreach ($konsumen as $ktg) : ?>
-                                <option value="<?= $ktg['id_konsumen'] ?>"><?= $ktg['nama_konsumen']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label class="label">No Faktur</label>
                         <input type="text" class="form-control item" name="no_faktur" required>
                     </div>

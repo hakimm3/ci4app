@@ -13,6 +13,7 @@ class Manage extends BaseController
     protected $karyawanmodel;
     protected $pemasokmodel;
     protected $konsumenmodel;
+    protected $logedUserData;
 
     public function __construct()
     {
@@ -20,6 +21,7 @@ class Manage extends BaseController
         $this->karyawanmodel = new KaryawanModel();
         $this->pemasokmodel = new PemasokModel();
         $this->konsumenmodel = new KonsumenModel();
+        $this->logedUserData = session()->get('level');
     }
 
     // Start Karyawan
@@ -28,10 +30,12 @@ class Manage extends BaseController
         $query = $this->db->query("SELECT *FROM karyawan WHERE deleted_at is NUll");
         $karyawan = $query->getResultArray();
 
+
         $data = [
             "title" => "Manajemen Karyawan",
             "active" => "manage-karyawan",
-            "karyawan" => $karyawan
+            "karyawan" => $karyawan,
+            'level' => $this->logedUserData
         ];
         return view('Manage/karyawan', $data);
     }
@@ -39,7 +43,8 @@ class Manage extends BaseController
     public function tambah_karyawan()
     {
         $data = [
-            'title' => 'Tambah Data Karyawan'
+            'title' => 'Tambah Data Karyawan',
+            'level' => $this->logedUserData
         ];
         return view('Manage/tambah_karyawan', $data);
     }
@@ -71,7 +76,8 @@ class Manage extends BaseController
         $karyawan = $query->getResultArray();
         $data = [
             'title' => "Detail Karyawan",
-            'karyawan' => $karyawan
+            'karyawan' => $karyawan,
+            'level' => $this->logedUserData
         ];
         return view('Manage/detail_karyawan', $data);
     }
@@ -82,7 +88,8 @@ class Manage extends BaseController
         $karyawan = $query->getResultArray();
         $data = [
             'title' => 'Edit Data Karyawan',
-            'karyawan' => $karyawan
+            'karyawan' => $karyawan,
+            'level' => $this->logedUserData
         ];
         return view('Manage/edit_karyawan', $data);
     }
@@ -109,6 +116,7 @@ class Manage extends BaseController
         $data = [
             "title" => "Manajemen Pemasok",
             "active" => "manage-pemasok",
+            'level' => $this->logedUserData,
             "pemasok" => $pemasok
         ];
         return view('Manage/pemasok', $data);
@@ -116,7 +124,8 @@ class Manage extends BaseController
     public function tambah_pemasok()
     {
         $data = [
-            'title' => 'Tambah Data Pemasok'
+            'title' => 'Tambah Data Pemasok',
+            'level' => $this->logedUserData
         ];
         return view('Manage/tambah_pemasok', $data);
     }
@@ -147,6 +156,7 @@ class Manage extends BaseController
         $pemasok = $query->getResultArray();
         $data = [
             'title' => "Detail Pemasok",
+            'level' => $this->logedUserData,
             'pemasok' => $pemasok
         ];
         return view('Manage/detail_pemasok', $data);
@@ -158,6 +168,7 @@ class Manage extends BaseController
         $pemasok = $query->getResultArray();
         $data = [
             'title' => 'Edit Data Pemasok',
+            'level' => $this->logedUserData,
             'pemasok' => $pemasok
         ];
         return view('Manage/edit_pemasok', $data);
@@ -186,6 +197,7 @@ class Manage extends BaseController
 
         $data = [
             "title" => "Manajemen Konsumen",
+            'level' => $this->logedUserData,
             "active" => "manage-konsumen",
             "konsumen" => $konsumen
         ];
@@ -195,7 +207,8 @@ class Manage extends BaseController
     public function tambah_konsumen()
     {
         $data = [
-            'title' => 'Tambah Data Konsumen'
+            'title' => 'Tambah Data Konsumen',
+            'level' => $this->logedUserData
         ];
         return view('Manage/tambah_konsumen', $data);
     }
@@ -226,6 +239,7 @@ class Manage extends BaseController
         $konsumen = $query->getResultArray();
         $data = [
             'title' => "Detail Konsumen",
+            'level' => $this->logedUserData,
             'konsumen' => $konsumen
         ];
         return view('Manage/detail_konsumen', $data);
@@ -237,6 +251,7 @@ class Manage extends BaseController
         $konsumen = $query->getResultArray();
         $data = [
             'title' => 'Edit Data Konsumen',
+            'level' => $this->logedUserData,
             'konsumen' => $konsumen
         ];
         return view('Manage/edit_konsumen', $data);

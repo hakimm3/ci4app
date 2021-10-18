@@ -23,6 +23,7 @@ class Pages extends BaseController
     protected $konsumenmodel;
     protected $pemasokmodel;
     protected $penggunamodel;
+    protected $logedUserData;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
@@ -32,12 +33,13 @@ class Pages extends BaseController
         $this->konsumenmodel = new KonsumenModel();
         $this->pemasokmodel = new PemasokModel();
         $this->penggunamodel = new PenggunaModel();
+        $this->logedUserData = session()->get('level');
     }
 
     public function index()
     {
         $logedUserID = session()->get('LoggedUser');
-        $level = session()->get('level');
+        $level = $this->logedUserData;
         $logedUserData = $this->penggunamodel->where('id_pengguna', $logedUserID)->findAll();
 
         $querystokkosong = $this->db->query('SELECT count(stok) as stok_kosong FROM barang WHERE stok=0');
@@ -78,10 +80,12 @@ class Pages extends BaseController
                                     WHERE barang.stok < barang.min_stok AND barang.deleted_at is null;
         ");
         $stok_menipis = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             "title" => "Stok Menipis",
             "active" => "stok-menipis",
-            'stok_menipis' => $stok_menipis
+            'stok_menipis' => $stok_menipis,
+            'level' => $level
         ];
         return view('Pages/stokmenipis', $data);
     }
@@ -99,9 +103,11 @@ class Pages extends BaseController
                                         where barang.id_barang='$id';
         ");
         $details = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Detail Data Barang',
-            'detail' => $details
+            'detail' => $details,
+            'level' => $level
         ];
         return view('Pages/detail_barang', $data);
     }
@@ -125,10 +131,13 @@ class Pages extends BaseController
         join konsumen on barang.id_konsumen = konsumen.id_konsumen
     where barang.id_barang ='$id';
         ");
+
+        $level = $this->logedUserData;
         $details = $query->getResultArray();
         $data = [
             'title' => 'Detail Data Barang',
-            'detail' => $details
+            'detail' => $details,
+            'level' => $level
         ];
         return view('Pages/detail_barang2', $data);
     }
@@ -138,10 +147,12 @@ class Pages extends BaseController
     {
         $barang = $this->barangmodel->where('id_barang', $id)->findAll();
         $kategori = $this->kategorimodel->findAll();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Edit Data Barang',
             'barang' => $barang,
-            'kategori' => $kategori
+            'kategori' => $kategori,
+            'level' => $level
         ];
 
         session()->setFlashdata('edit_success', 'Data Berhasil di Ubah');
@@ -170,10 +181,12 @@ class Pages extends BaseController
     {
         $barang = $this->barangmodel->where('id_barang', $id)->findAll();
         $kategori = $this->kategorimodel->findAll();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Edit Data Barang',
             'barang' => $barang,
-            'kategori' => $kategori
+            'kategori' => $kategori,
+            'level' => $level
         ];
 
         return view('Pages/edit_barang2', $data);
@@ -212,7 +225,9 @@ class Pages extends BaseController
                                         WHERE barang.deleted_at is null;
             ");
         $stok_menipis = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
+            'level' => $level,
             "title" => "Manajemen Barang",
             'stok_menipis' => $stok_menipis
         ];
@@ -225,12 +240,14 @@ class Pages extends BaseController
         $kategori = $this->kategorimodel->findAll();
         $konsumen = $this->konsumenmodel->findAll();
         $pemasok = $this->pemasokmodel->findAll();
+        $level = $this->logedUserData;
 
         $data = [
             'title' => 'Tambah Data Barang',
             'kategori' => $kategori,
             'konsumen' => $konsumen,
-            'pemasok' => $pemasok
+            'pemasok' => $pemasok,
+            'level' => $level,
         ];
         return view('Pages/tambah_barang', $data);
     }
@@ -239,7 +256,6 @@ class Pages extends BaseController
     {
         $barang = [
             'id_barang' => $this->uuid(),
-            'id_konsumen' => $this->request->getVar('id_konsumen'),
             'id_pemasok' => $this->request->getVar('id_pemasok'),
             'id_kategori' => $this->request->getVar('id_kategori'),
             'nama_barang' => $this->request->getVar('nama_barang'),
@@ -276,9 +292,11 @@ class Pages extends BaseController
     public function pengguna()
     {
         $pengguna = $this->penggunamodel->findAll();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Manage Pengguna',
-            'pengguna' => $pengguna
+            'pengguna' => $pengguna,
+            'level' => $level
         ];
         return view('Pages/pengguna', $data);
     }
@@ -286,7 +304,9 @@ class Pages extends BaseController
     public function details_pengguna($id)
     {
         $detail = $this->penggunamodel->where('id_pengguna', $id)->findAll();
+        $level = $this->logedUserData;
         $data = [
+            'level' => $level,
             'title' => 'Detail Pengguna',
             'detail' => $detail
         ];

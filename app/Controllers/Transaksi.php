@@ -16,6 +16,7 @@ class Transaksi extends BaseController
     protected $barangkeluarmodel;
     protected $barangmodel;
     protected $konsumenmodel;
+    protected $logedUserData;
     public function __construct()
     {
         $this->db = $this->db = \Config\Database::connect();
@@ -24,6 +25,7 @@ class Transaksi extends BaseController
         $this->kategorimodel = new KategoriModel();
         $this->barangkeluarmodel = new BarangKeluarModel();
         $this->konsumenmodel = new KonsumenModel();
+        $this->logedUserData = session()->get('level');
     }
     public function barangmasuk()
     {
@@ -41,9 +43,11 @@ class Transaksi extends BaseController
                 WHERE barang_masuk.deleted_at is null;
     ');
         $barangmasuk = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             "title" => "Transaksi Barang Masuk",
             'barang_masuk' => $barangmasuk,
+            'level' => $level
         ];
         return view('Transaksi/barangmasuk', $data);
     }
@@ -66,9 +70,11 @@ class Transaksi extends BaseController
                 WHERE barang_masuk.id_barang_masuk = '$id';
     ");
         $detail = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Detail Barang Masuk',
-            'detail' => $detail
+            'detail' => $detail,
+            'level' => $level
         ];
         return view('Transaksi/detail_barang_masuk', $data);
     }
@@ -92,11 +98,13 @@ class Transaksi extends BaseController
                 WHERE barang_masuk.id_barang_masuk = '$id';
     ");
         $detail = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Edit Barang Masuk',
             'detail' => $detail,
             'kategori' => $kategori,
-            'barang' => $barang
+            'barang' => $barang,
+            'level' => $level
         ];
         return view('Transaksi/edit_barang_masuk', $data);
     }
@@ -137,9 +145,11 @@ class Transaksi extends BaseController
         join barang_keluar on barang.id_barang = barang_keluar.id_barang
         WHERE barang_keluar.deleted_at is null;");
         $barang_keluar = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             "title" => "Transaksi Barang Keluar",
-            'barang_keluar' => $barang_keluar
+            'barang_keluar' => $barang_keluar,
+            'level' => $level
         ];
         return view('Transaksi/barangkeluar', $data);
     }
@@ -159,9 +169,11 @@ class Transaksi extends BaseController
         join barang_keluar on barang.id_barang = barang_keluar.id_barang
         WHERE barang_keluar.id_barang_keluar = '$id';");
         $barang_keluar = $query->getResultArray();
+        $level = $this->logedUserData;
         $data = [
             'title' => "Detail Barang Keluar",
-            'barang_keluar' => $barang_keluar
+            'barang_keluar' => $barang_keluar,
+            'level' => $level
         ];
         return view('Transaksi/detail_barang_keluar', $data);
     }
@@ -170,10 +182,12 @@ class Transaksi extends BaseController
     {
         $barang = $this->barangmodel->findAll();
         $konsumen = $this->konsumenmodel->findAll();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Tambah Barang Keluar',
             'barang' => $barang,
-            'konsumen' => $konsumen
+            'konsumen' => $konsumen,
+            'level' => $level
         ];
         return view('Transaksi/tambah_barang_keluar', $data);
     }
@@ -184,11 +198,13 @@ class Transaksi extends BaseController
         $barang_keluar = $query->getResultArray();
         $barang = $this->barangmodel->findAll();
         $konsumen = $this->konsumenmodel->findAll();
+        $level = $this->logedUserData;
         $data = [
             'title' => 'Tambah Barang Keluar',
             'barang' => $barang,
             'konsumen' => $konsumen,
-            'barang_keluar' => $barang_keluar
+            'barang_keluar' => $barang_keluar,
+            'level' => $level
         ];
         return view('Transaksi/edit_barang_keluar', $data);
     }

@@ -32,6 +32,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
+    // Add all routes need protectted by this filter
+
     $routes->get('/', 'Pages::index');
     $routes->get('/karyawan', 'Manage::karyawan');
     $routes->get('/pemasok', 'Manage::pemasok');
@@ -56,6 +58,8 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
     $routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
     $routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
+
+    $routes->get('/Auth/login', 'Auth::Register');
 });
 
 $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {

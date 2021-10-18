@@ -9,18 +9,23 @@ class Auth extends BaseController
 {
     protected $validation;
     protected $penggunamodel;
+    protected $logedUserData;
     public function __construct()
     {
         $this->validation =  \Config\Services::validation();
         helper('Form_helper');
         helper(['url', 'form']);
         $this->penggunamodel = new PenggunaModel();
+        $this->logedUserData = session()->get('level');
     }
 
     public function register()
     {
+        session();
         $data = [
-            'title' => 'Tambah Pengguna'
+            'title' => 'Tambah Pengguna',
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
         ];
         return view('Auth/register', $data);
     }
@@ -31,62 +36,65 @@ class Auth extends BaseController
 
     public function save()
     {
-        // $validation = $this->validate([
-        //     'nama_pengguna' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Nama Lengkap harus diisi'
-        //         ]
-        //     ],
-        //     'alamat' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Alamat harus diisi'
-        //         ]
-        //     ],
-        //     'phone' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'No Handphone harus diisi'
-        //         ]
-        //     ],
-        //     'email' => [
-        //         'rules' => 'required|valid_email|is_unique[pengguna.email]',
-        //         'errors' => [
-        //             'required' => 'Email harus diisi',
-        //             'valid_email' => 'Email anda tidak valid',
-        //             'is_unique' => 'Email sudah terdaftar'
-        //         ]
-        //     ],
-        //     'level' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Level harus diisi'
-        //         ]
-        //     ],
-        //     'username' => [
-        //         'rules' => 'required|is_unique[pengguna.username]',
-        //         'errors' => [
-        //             'required' => 'Username harus diisi',
-        //             'is_unique' => 'Username sudah terdaftar'
-        //         ]
-        //     ],
-        //     'password' => [
-        //         'rules' => 'required|min_length[8]',
-        //         'errors' => [
-        //             'required' => 'Password harus diisi',
-        //             'min_length' => 'Password harus diisi minimal 8 karakter'
-        //         ]
-        //     ],
-        //     'cpassword' => [
-        //         'rules' => 'required|min_length[8]|matches[password]',
-        //         'errors' => [
-        //             'required' => 'Konfirmasi Password harus diisi',
-        //             'min_length' => 'Password harus diisi minimal 8 karakter',
-        //             'matches' => 'Password tidak sama'
-        //         ]
-        //     ]
-        // ]);
+        if (!$this->validate([
+            'nama_pengguna' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus diisi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus diisi'
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[pengguna.email]',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email anda tidak valid',
+                    'is_unique' => 'Email sudah terdaftar'
+                ]
+            ],
+            'level' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Level harus diisi'
+                ]
+            ],
+            'username' => [
+                'rules' => 'required|is_unique[pengguna.username]',
+                'errors' => [
+                    'required' => 'Username harus diisi',
+                    'is_unique' => 'Username sudah terdaftar'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Password harus diisi',
+                    'min_length' => 'Password harus diisi minimal 8 karakter'
+                ]
+            ],
+            'cpassword' => [
+                'rules' => 'required|min_length[8]|matches[password]',
+                'errors' => [
+                    'required' => 'Konfirmasi Password harus diisi',
+                    'min_length' => 'Password harus diisi minimal 8 karakter',
+                    'matches' => 'Password tidak sama'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Auth/register')->withInput()->with('validation', $validation);
+        }
 
 
         $data = [
@@ -139,8 +147,11 @@ class Auth extends BaseController
             } else {
                 $user_id = $userinfo['id_pengguna'];
                 $user_level = $userinfo['level'];
-                session()->set('LoggedUser', $user_id);
-                session()->set('level', $user_level);
+                $data = [
+                    'level' => $userinfo['level'],
+                    'LoggedUser' => $userinfo['id_pengguna']
+                ];
+                session()->set($data);
                 return redirect()->to('/');
             }
         }
@@ -148,10 +159,14 @@ class Auth extends BaseController
 
     public function logout()
     {
-        session();
         // return redirect()->to('/auth/login?access=out');
-        if (session()->has('LoggedUser')) {
+        if (!session()->has('LogedUser')) {
+            return redirect()->to('/auth/login?access=out');
+        }
+
+        if (session()->has('LogedUser')) {
             session()->remove('LoggedUser');
+            session()->remove('level');
             return redirect()->to('/auth/login?access=out');
         }
     }
