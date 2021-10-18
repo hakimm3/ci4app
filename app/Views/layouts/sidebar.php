@@ -53,7 +53,7 @@ use Faker\Provider\Base;
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('/stokmenipis') ?>">
-            <i class=" fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-chart-bar"></i>
             <span>Stok Menipis</span></a>
     </li>
 
