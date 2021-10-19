@@ -7,8 +7,3 @@ function display_error($validation, $field)
         return false;
     }
 }
-
-function coba()
-{
-    echo "Coba";
-}

@@ -49,6 +49,8 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/Pages/manajemenbarang', 'Pages::manajemenbarang');
     $routes->get('/pengguna', 'Pages::pengguna');
     $routes->get('/Pages/pengguna', 'Pages::pengguna');
+    $routes->get('/Pages/manajemenkategori', 'Pages::manajemenkategori');
+    $routes->get('/kategori', 'Pages::manajemenkategori');
 
 
     $routes->get('/transaksimasuk', 'Transaksi::barangmasuk');
@@ -61,12 +63,11 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
     $routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
     $routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
-
-    $routes->get('/Auth/login', 'Auth::login');
 });
 
 $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
-    $routes->get('/Auth/login', 'Auth::login;');
+    $routes->get('/Auth/login', 'Auth::login');
+    $routes->get('/auth/login', 'Auth::login');
 });
 
 $routes->group('', ['filter' => 'LevelCheck'], function ($routes) {

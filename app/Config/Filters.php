@@ -22,7 +22,7 @@ class Filters extends BaseConfig
         "AuthCheck" => \App\Filters\AuthCheckFilter::class,
         "LevelCheck" => \App\Filters\LevelCheckFilter::class,
         "SuperCheck" => \App\Filters\SuperCheckFilter::class,
-        "AlreadyLogin" => \App\Filters\AlreadyLoginFilter::class,
+        "AlreadyLogin" => \App\Filters\AlreadyLoginFilter::class
     ];
 
     /**

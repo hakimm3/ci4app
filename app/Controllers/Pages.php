@@ -402,9 +402,167 @@ class Pages extends BaseController
         return view('Pages/detail_pengguna', $data);
     }
 
+    public function edit_pengguna($id)
+    {
+        $detail = $this->penggunamodel->where('id_pengguna', $id)->findAll();
+        $level = $this->logedUserData;
+        $data = [
+            'level' => $level,
+            'title' => 'Edit Pengguna',
+            'detail' => $detail,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('Pages/edit_pengguna', $data);
+    }
+
+    public function save_edit_pengguna()
+    {
+        $id_pengguna = $this->request->getVar('id_pengguna');
+        if (!$this->validate([
+            'nama_pengguna' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus diisi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus diisi'
+                ]
+            ],
+            'phone' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'No Handphone harus diisi'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus diisi',
+                    'valid_email' => 'Email anda tidak valid'
+                ]
+            ],
+            'level' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Level harus diisi'
+                ]
+            ],
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi',
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Pages/edit_pengguna/' . $id_pengguna)->withInput()->with('validation', $validation);
+        }
+
+
+        $data = [
+            'nama_pengguna' => $this->request->getVar('nama_pengguna'),
+            'alamat' => $this->request->getVar('alamat'),
+            'phone' => $this->request->getVar('phone'),
+            'email' => $this->request->getVar('email'),
+            'level' => $this->request->getVar('level'),
+            'username' => $this->request->getVar('username'),
+        ];
+        $this->penggunamodel->update($id_pengguna, $data);
+
+        // return redirect()->to('Auth/register')->with('success', 'Pengguna Berhasil di tambahkan');
+        return redirect()->to('/pengguna');
+    }
+
+
     public function hapus_pengguna($id)
     {
         $this->penggunamodel->delete($id);
         return redirect()->to('/pengguna');
+    }
+
+    public function manajemenkategori()
+    {
+        $kategori = $this->kategorimodel->findAll();
+        $data = [
+            'title' => 'Manajemen Kategori',
+            'kategori' => $kategori,
+            'level' => $this->logedUserData
+        ];
+        return view('Pages/manajemen_kategori', $data);
+    }
+
+    public function edit_kategori($id)
+    {
+        $kategori = $this->kategorimodel->where('id_kategori', $id)->findAll();
+        $data = [
+            'title' => 'Edit Kategori',
+            'kategori' => $kategori,
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('Pages/edit_kategori', $data);
+    }
+
+    public function save_edit_kategori()
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kategori Harus diisi'
+                ]
+            ]
+        ])) {
+            $id = $this->request->getVar('id_kategori');
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Pages/edit_kategori/' . $id)->withInput()->with('validation', $validation);
+        }
+
+        $id = $this->request->getVar('id_kategori');
+        $kategori = [
+            'nama_kategori' => $this->request->getVar('nama')
+        ];
+        $this->kategorimodel->update($id, $kategori);
+        return redirect()->to('/Pages/edit_kategori/' . $id);
+    }
+    public function hapus_kategori($id)
+    {
+        $this->kategorimodel->delete($id);
+        return redirect()->to('/kategori');
+    }
+
+    public function tambahkategori()
+    {
+        $data = [
+            'title' => 'Tambah Kategori',
+            'level' => $this->logedUserData,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('/Pages/tambah_kategori', $data);
+    }
+
+    public function save_tambah_kategori()
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kategori Harus diisi'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Pages/tambahkategori')->withInput()->with('validation', $validation);
+        }
+
+        $kategori = [
+            'id_kategori' => $this->uuid(),
+            'nama_kategori' => $this->request->getVar('nama')
+        ];
+        $this->kategorimodel->insert($kategori);
+        return redirect()->to('/kategori');
     }
 }

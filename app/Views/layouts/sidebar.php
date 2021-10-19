@@ -44,6 +44,14 @@ use Faker\Provider\Base;
     <hr class="sidebar-divider">
 
     <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('/kategori') ?>">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Manajemen Kategori</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
         <a class="nav-link" href="<?= base_url('/manajemenbarang') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Manajemen Barang</span></a>

@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <?php if (session()->has('LogedUser')) : ?>
+        <h1>Ada</h1>
+    <?php endif; ?>
     <div class="registration-form">
         <form action="/Auth/check" method="post">
             <div class="form-icon">

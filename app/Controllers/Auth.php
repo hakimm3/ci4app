@@ -168,7 +168,7 @@ class Auth extends BaseController
         if (session()->has('LogedUser')) {
             session()->remove('LogedUser');
             session()->remove('level');
-            return redirect()->to('/auth/login?access=out');
+            return redirect()->to('/auth/login');
         }
     }
 }
