@@ -526,7 +526,7 @@ class Pages extends BaseController
             'nama_kategori' => $this->request->getVar('nama')
         ];
         $this->kategorimodel->update($id, $kategori);
-        return redirect()->to('/Pages/edit_kategori/' . $id);
+        return redirect()->to('/kategori');
     }
     public function hapus_kategori($id)
     {
@@ -548,9 +548,10 @@ class Pages extends BaseController
     {
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required',
+                'rules' => 'required|is_unique[kategori.nama_kategori]',
                 'errors' => [
-                    'required' => 'Kategori Harus diisi'
+                    'required' => 'Kategori Harus diisi',
+                    'is_unique' => 'Kategori Sudah Ada'
                 ]
             ]
         ])) {

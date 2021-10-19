@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label class="label">No Handphone</label>
-                        <input type="number" class="form-control item" name="phone" value="<?= $karyawan[0]['phone'] ?>">
+                        <input type="text" class="form-control item" name="phone" value="<?= $karyawan[0]['phone'] ?>">
                         <span class="text-danger"><?= isset($validation) ? display_error($validation, 'phone') : '' ?></span>
                     </div>
                 </div>

@@ -58,12 +58,11 @@ class Manage extends BaseController
 
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
-                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter'
                 ]
             ],
             'alamat' => [
@@ -135,8 +134,8 @@ class Manage extends BaseController
 
     public function edit_karyawan($id)
     {
-        $query = $this->db->query("SELECT *FROM karyawan WHERE id_karyawan = '$id'");
-        $karyawan = $query->getResultArray();
+
+        $karyawan = $this->karyawanmodel->where('id_karyawan', $id)->findAll();
         $data = [
             'title' => 'Edit Data Karyawan',
             'karyawan' => $karyawan,
@@ -150,12 +149,11 @@ class Manage extends BaseController
     {
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
-                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter'
                 ]
             ],
             'alamat' => [
@@ -232,12 +230,11 @@ class Manage extends BaseController
     {
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
                     'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
                 ]
             ],
             'alamat' => [
@@ -316,12 +313,11 @@ class Manage extends BaseController
     {
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
-                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter'
                 ]
             ],
             'alamat' => [
@@ -396,12 +392,11 @@ class Manage extends BaseController
     {
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
-                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter'
                 ]
             ],
             'alamat' => [
@@ -480,12 +475,11 @@ class Manage extends BaseController
 
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|max_length[50]|min_length[4]|alpha_space',
+                'rules' => 'required|max_length[50]|min_length[4]',
                 'errors' => [
                     'required' => 'Nama harus diisi',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter',
-                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter',
-                    'alpha_space' => 'Nama Hanya boleh diisi huruf'
+                    'min_length' => 'Nama tidak boleh lebih kurang dari 3 karakter'
                 ]
             ],
             'alamat' => [
