@@ -263,6 +263,9 @@ class Transaksi extends BaseController
         $intstok = (int)$stokk;
         $int = (int)$qty;
         $hasilstok = $intstok - $int;
+        if ($hasilstok <= 0) {
+            $hasilstok = 0;
+        }
         //Akhir 
         $barang_keluar = [
             'id_barang_keluar' => $this->uuid(),

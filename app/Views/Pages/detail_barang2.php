@@ -27,15 +27,12 @@
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['pemasok'] ?>">
                     </div>
                     <div class="form-group">
-                        <label class="label">Konsumen</label>
-                        <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['konsumen'] ?>">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
                         <label class="label">Stok</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['stok'] ?>">
                     </div>
+                </div>
+                <div class="col-6">
+
                     <div class="form-group">
                         <label class="label">Minimal Stok</label>
                         <input type="text" class="form-control item" name="phone" value="<?= $detail[0]['min_stok'] ?>">

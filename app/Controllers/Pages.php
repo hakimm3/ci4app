@@ -127,7 +127,6 @@ class Pages extends BaseController
         barang.id_barang as id_barang,
         kategori.nama_kategori as kategori,
         pemasok.nama_pemasok as pemasok,
-        konsumen.nama_konsumen as konsumen,
         barang.stok as stok,
         barang.min_stok as min_stok,
         barang.created_at as tanggal_masuk,
@@ -136,7 +135,6 @@ class Pages extends BaseController
     from barang
         join kategori on barang.id_kategori = kategori.id_kategori
         join pemasok on barang.id_pemasok = pemasok.id_pemasok
-        join konsumen on barang.id_konsumen = konsumen.id_konsumen
     where barang.id_barang ='$id';
         ");
 
