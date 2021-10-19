@@ -61,7 +61,7 @@ use Faker\Provider\Base;
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('/stokmenipis') ?>">
-            <i class="fas fa-chart-bar"></i>
+            <i class="fas fa-exclamation-triangle"></i>
             <span>Stok Menipis</span></a>
     </li>
 
@@ -69,7 +69,7 @@ use Faker\Provider\Base;
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-exchange-alt"></i>
             <span>Transaksi</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -105,7 +105,7 @@ use Faker\Provider\Base;
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('/pengguna') ?>">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-users-cog"></i>
                 <span>Manajemen Pengguna</span></a>
         </li>
 
