@@ -1,3 +1,3 @@
 Jalankan php spark migrate && php spark db:seed MainSeeder
 
-lalu login dengan username 'hakim' dan passsword '11111111's
+lalu login dengan username 'hakim' dan passsword '11111111'
