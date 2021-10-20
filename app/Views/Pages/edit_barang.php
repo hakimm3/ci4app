@@ -54,7 +54,7 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account">Simpan</button>
-                <a href="/stokmenipis" class="btn btn-block create-account">Kembali</a>
+                <a href="<?= base_url('/stokmenipi') ?>" class="btn btn-block create-account">Kembali</a>
             </div>
         </form>
     </div>

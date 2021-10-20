@@ -10,7 +10,7 @@ class LevelCheckFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('level') == 'admin') {
+        if (session()->get('level') == 'admin' && session()->has('LogedUser')) {
             return redirect()->back();
         }
     }

@@ -31,6 +31,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+$routes->group('', ['filter' => 'LevelCheck'], function ($routes) {
+    $routes->get('/Pages/pengguna', 'Pages::pengguna');
+    $routes->get('/pengguna', 'Pages::pengguna');
+    $routes->get('/Auth/register', 'Auth::register');
+    $routes->get('/Pages/details_pengguna/(:any)', 'Pages::details_pengguna/$1');
+    $routes->get('/Pages/edit_pengguna/(:any)', 'Pages::edit_pengguna/$1');
+});
+
 $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     // Add all routes need protectted by this filter
 
@@ -63,6 +72,26 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/laporanbarangkeluar', 'Laporan::laporanbarangkeluar');
     $routes->get('/laporankonsumen', 'Laporan::laporankonsumen');
     $routes->get('/laporanpemasok', 'Laporan::laporanpemasok');
+
+
+
+    // _________________________________________________________________________
+
+    $routes->get('/Pages/details_barang/(:any)', 'Pages::details_barang/$1');
+    $routes->get('/Pages/details_barang2/(:any)', 'Pages::details_barang2/$1');
+    $routes->get('/Pages/details_pengguna/(:any)', 'Pages::details_pengguna/$1');
+
+    $routes->get('/Pages/tambahbarang', 'Pages::tambahbarang');
+    $routes->get('/Pages/tambahkategori', 'Pages::tambahkategori');
+
+    $routes->get('/Pages/edit_barang/(:any)', 'Pages::edit_barang/$1');
+    $routes->get('/Pages/edit_barang2/(:any)', 'Pages::edit_barang2/$1');
+    $routes->get('/Pages/edit_pengguna/(:any)', 'Pages::edit_pengguna/$1');
+    $routes->get('/Pages/edit_kategori/(:any)', 'Pages::edit_kategori/$1');
+
+    $routes->get('/Pages/hapus_barang/(:any)', 'Pages::hapus_barang/$1');
+    $routes->get('/Pages/hapus_barang2/(:any)', 'Pages::hapus_barang2/$1');
+    $routes->get('/Pages/hapus_kategori/(:any)', 'Pages::hapus_kategori/$1');
 });
 
 $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
@@ -70,13 +99,7 @@ $routes->group('', ['filter' => 'AlreadyLogin'], function ($routes) {
     $routes->get('/auth/login', 'Auth::login');
 });
 
-$routes->group('', ['filter' => 'LevelCheck'], function ($routes) {
-    $routes->get('/Pages/pengguna', 'Pages::pengguna');
-    $routes->get('/pengguna', 'Pages::pengguna');
-    $routes->get('/Auth/register', 'Auth::register');
-    $routes->get('/Pages/details_pengguna', 'Pages::detail_pengguna');
-    $routes->get('/Pages/edit_pengguna', 'Pages::edit_pengguna');
-});
+
 
 /*
  * --------------------------------------------------------------------

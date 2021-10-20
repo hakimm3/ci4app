@@ -202,7 +202,7 @@ class Pages extends BaseController
         ];
         $this->barangmodel->update($id_barang, $data);
 
-        return redirect()->to('Pages/edit_barang/' . $id_barang);
+        return redirect()->to('/stokmenipis');
     }
 
     // Edit Barang 2
