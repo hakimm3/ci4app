@@ -13,7 +13,7 @@ class BarangSeeder extends Seeder
     public function run()
     {
         $this->db = \Config\Database::connect();
-        // $this->faker = Faker\Factory::create('id_ID');
+        // $this->faker = \Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 15; $i++) {
             $id_konsumen = static::faker()->uuid();

@@ -4,7 +4,7 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Manajemen Barang</h1>
 <form action="/Pages/tambahbarang" method="post">
-    <button class="btn btn-primary my-3" name="tambah_barang">Tambah Data barang</button>
+    <button class="btn btn-success my-3" name="tambah_barang">Tambah Data barang</button>
 </form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -17,9 +17,6 @@
                         <th>Barang</th>
                         <th>Kategori</th>
                         <th>Stok</th>
-                        <!-- <th>Satuan</th>
-                        <th>Kondisi</th>
-                        <th>Tanggal Masuk</th> -->
                         <th>Aksi</th>
                     </tr>
                 </thead>

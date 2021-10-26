@@ -3,7 +3,7 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Manajemen Data Pemasok</h1>
 <form action="/Manage/tambah_pemasok" method="post">
-    <button type="submit" class="btn btn-primary my-3">Tambah Data Pemasok</button>
+    <button type="submit" class="btn btn-success my-3">Tambah Data Pemasok</button>
 </form>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
